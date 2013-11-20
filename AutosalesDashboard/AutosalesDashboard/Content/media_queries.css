@@ -1,0 +1,398 @@
+﻿@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+    #filterContainer {
+        background-color: red;
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) 
+and (max-width : 760px) {
+/* Styles */
+    .unsupportedDeviceWidth {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #FFFFFF;
+        z-index: 9999999;
+        overflow: hidden;
+        text-align: center;
+    }
+        .unsupportedDeviceWidth img {
+            display: block;
+            margin: 42px auto; 
+        }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+    .panel {
+        overflow-y: hidden;
+    }
+
+    #infoButton,
+    #homeButton {
+        top: 5px;
+        right: 5px;
+    }
+        #infoButton span,
+        #homeButton span {
+            top: 8px;
+            right: 8px;
+        }
+
+    #backButton {
+        top: 5px;
+        left: 5px;
+    }
+        #backButton span {
+            top: 8px;
+            left: 8px;
+        }
+
+    #header span,
+    #infoButton,
+    #homeButton {
+        margin: 0px;
+    }
+
+    #infoButton,
+    #homeButton,
+    #backButton {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+    }
+
+    .map_chart_container {
+        display: none;
+    }
+
+    #headerContent span {
+        top: 14px;
+        left: 55px;
+    }
+
+    #filter {
+        top: 44px;
+        left: 0px;
+        width: 320px;
+        position: fixed;
+    }
+
+    #header {
+        position: fixed;
+        z-index: 9999999;
+    }
+
+	#panels {
+		width: 960px;
+	}
+
+    #dashboard.panel {
+        width: 320px;
+        margin-top: 89px;
+        margin-left: 0px;
+        border: 0;
+    }
+
+    .period-sales .boxWrapper span + span {
+        font-size: 0.55em;
+    }
+
+    #status {
+        width: 320px;
+        border: 0;
+        margin: 45px 0 0 0;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    #status .ui-tabs .ui-tabs-nav li {
+        margin-top: 10px;
+    }
+
+    /*#status1 .dealers, #status1 .carModels {
+        height: 295px;
+    }*/
+    
+    #detail.panel {
+        width: 320px;
+        margin-left: 0px;
+        margin-top: 44px;
+        border: 0;
+        overflow-x : hidden;
+    }
+
+    #viewStatus {
+        background-color: #E0E0E0;
+        text-align: center;
+        width: 100%;
+        height: 40px;
+        position: relative;
+        line-height: 40px;
+        padding-top: 5px;
+    }
+
+    .changeViewStatus {
+        text-indent: -9999px;
+        background-image: url('images/ui-sprite.png');
+        width: 32px; 
+        height: 32px;
+        display: inline-block;
+        margin:2px 0 0 40px;
+    }
+        .changeViewStatus:first-child {
+            margin-left: 0px;
+        }
+
+
+    .mobileGridIcon {background-position: 0px -401px}
+    .mobileGraphIcon {background-position: 0px -433px;}
+    .mobileMapIcon {background-position: 0px -465px;}
+
+    #panels {
+        max-width: 1600px;
+    }
+
+    .arrowUp {
+        left: 10px;
+    }
+
+
+
+    /*grid / regional status */
+        #status .ui-iggrid {
+            font-size: 0.813em;
+        }
+
+        .clickRight {
+            margin-top: 3px;
+        }
+
+        #status thead tr th {
+            border-bottom: 0;
+        }
+
+    /* info cards */
+
+    .head-info.dealerships-info {
+        height: 181px;
+    }
+        .head-info.dealerships-info img {
+            top: 32px;
+        }
+
+    .head-info {
+        height: 141px
+    }
+        .head-info img {
+            top: 0;
+        }
+
+        .head-info img.car-image  {
+            max-width: 75%;
+            top: 12px;
+        }
+
+        .head-info h1 {
+            margin-top: 0px;
+            padding-top: 5px;
+        }
+
+        .head-info span {
+            max-width: 45%;
+        }
+
+        .head-info span.email-icon, 
+        .head-info span.smartphone-icon, 
+        .head-info span.location-icon {
+            margin-top: 5px;
+        }
+
+
+    .extendNavigation .arrowUp,
+    .extendNavigation .arrowDown {
+        float: right;
+    }
+
+    .extendNavigation .arrowUp {
+        background-position: 0px 0px;
+        left: 250px;
+    }
+
+    .extendNavigation .arrowDown {
+        background-position: -0px -16px;
+        left: 290px;
+    }
+
+
+    .body-info-stats li {
+        font-size: 0.8em;
+    }
+        .body-info-stats li::before {
+            font-size: 0.8em;
+            position: relative;
+            top: -1px;
+        }
+
+    .body-info-stats span,
+    .body-info-past span {
+        font-size: 0.75em;
+    }
+
+    #detail span.award {
+        font-size: 0.8em;
+        display: inline-block;
+        max-width: 80%;
+    }
+        span.award-icon {
+            vertical-align: top;
+        }
+
+    .cash-icon, 
+    .units-icon, 
+    .star-icon, 
+    .mpg-icon, 
+    .horsepower-icon, 
+    .safety-icon, 
+    .rating-icon, 
+    .body-info-stats p, 
+    .body-info-stats li {
+        margin-left: 10px;
+    }
+
+    #detail.panel {
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    .body-info-charts {
+        height: auto;
+    }
+
+    #detail .changeFilterWrap {
+        position: relative;
+        right: 0;
+        margin-bottom: -10px;
+    }
+
+    /* dialog */ 
+
+    #infoPanel {
+        /*width: 100%!important;*/
+        background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 60%, rgba(240, 240, 240, 1) 125%);
+        background-image: -webkit-radial-gradient(circle, rgba(255, 255, 255, 1) 60%, rgba(240, 240, 240, 1) 125%);
+    }
+
+    .ui-dialog-wrap a,
+    .ui-dialog-wrap .dialog-qr {
+        display: none;
+    }
+    .ui-dialog-wrap {
+        margin: 10px;
+        height: 340px;
+    }
+        .ui-dialog-wrap p,
+        .ui-dialog-wrap h1 {
+            font-size: 11px;
+        }
+
+        .ui-dialog-wrap h1 {
+            font-weight: 600;
+        }
+
+        .ui-dialog-wrap p {
+            margin: 20px 0px;
+        }
+
+        span.dialog-sprite {
+            width: 24px;
+            height: 24px;
+            background-image: url('images/ui-sprite.png');
+        }
+
+        .control-sprite-wrap {
+            height: 55px;
+            margin: 20px 0px;
+        }
+
+        .ui-dialog-wrap span:nth-child(4) {
+            margin-right: 120px;
+        }
+
+        .ui-dialog-wrap span:nth-child(7) {
+            margin-left: -7px;
+        }
+
+        .dialog-igniteui,
+        .dialog-infragistics {
+            position: relative;
+            bottom: 0;
+        }
+
+        .ds-map {background-position: -36px -372px; }
+        .ds-grid {background-position: -36px -341px;}
+        .ds-chart {background-position: -4px -341px;}
+        .ds-bulletgraph {background-position: -4px -372px;}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+    #detail {
+        width: 370px;
+    }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+    #map {
+        height: 1024px!important;
+    }
+}
+
+
+/* Retina Display images */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+  
+  /* Retina-specific stuff here */
+
+  #header span,
+  a.closeButton,
+  .section.period-sales .boxWrapper span.arrow,
+  a#showProducts, a#showRegions,
+  .sprite-detail,
+  .arrowUp,
+  .arrowDown,
+  .clickRight,
+  .clickRightArrow,
+  span.award-icon,
+  span.dialog-sprite,
+  .ui-igdialog-close-icon,
+  #info,
+  div.tabListIcon span,
+  .backFilter span {
+        background-image: url('images/ui-sprite-highres.png')!important;
+        background-size: 64px 531px;
+    }
+}

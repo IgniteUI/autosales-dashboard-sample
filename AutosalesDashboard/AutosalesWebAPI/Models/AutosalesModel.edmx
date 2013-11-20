@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AutosalesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="AutosalesModelStoreContainer">
+          <EntitySet Name="DealershipAwards" EntityType="AutosalesModel.Store.DealershipAwards" store:Type="Tables" store:Schema="dbo" store:Name="DealershipAwards">
+            <DefiningQuery>SELECT 
+      [DealershipAwards].[ID] AS [ID], 
+      [DealershipAwards].[DealershipID] AS [DealershipID], 
+      [DealershipAwards].[Award] AS [Award]
+      FROM [dbo].[DealershipAwards] AS [DealershipAwards]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DealershipProductTargets" EntityType="AutosalesModel.Store.DealershipProductTargets" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Dealerships" EntityType="AutosalesModel.Store.Dealerships" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DealershipServices" EntityType="AutosalesModel.Store.DealershipServices" store:Type="Tables" store:Schema="dbo" store:Name="DealershipServices">
+            <DefiningQuery>SELECT 
+      [DealershipServices].[ID] AS [ID], 
+      [DealershipServices].[DealershipID] AS [DealershipID], 
+      [DealershipServices].[Service] AS [Service]
+      FROM [dbo].[DealershipServices] AS [DealershipServices]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmployeeAwards" EntityType="AutosalesModel.Store.EmployeeAwards" store:Type="Tables" store:Schema="dbo" store:Name="EmployeeAwards">
+            <DefiningQuery>SELECT 
+      [EmployeeAwards].[ID] AS [ID], 
+      [EmployeeAwards].[EmployeeID] AS [EmployeeID], 
+      [EmployeeAwards].[Award] AS [Award]
+      FROM [dbo].[EmployeeAwards] AS [EmployeeAwards]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Employees" EntityType="AutosalesModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductAwards" EntityType="AutosalesModel.Store.ProductAwards" store:Type="Tables" store:Schema="dbo" store:Name="ProductAwards">
+            <DefiningQuery>SELECT 
+      [ProductAwards].[ID] AS [ID], 
+      [ProductAwards].[ProductSKU] AS [ProductSKU], 
+      [ProductAwards].[Award] AS [Award]
+      FROM [dbo].[ProductAwards] AS [ProductAwards]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Products" EntityType="AutosalesModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Regions" EntityType="AutosalesModel.Store.Regions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SalesTransactions" EntityType="AutosalesModel.Store.SalesTransactions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="AutosalesModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_DealershipAwards_Dealerships" Association="AutosalesModel.Store.FK_DealershipAwards_Dealerships">
+            <End Role="Dealerships" EntitySet="Dealerships" />
+            <End Role="DealershipAwards" EntitySet="DealershipAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealershipProductTargets_Dealerships" Association="AutosalesModel.Store.FK_DealershipProductTargets_Dealerships">
+            <End Role="Dealerships" EntitySet="Dealerships" />
+            <End Role="DealershipProductTargets" EntitySet="DealershipProductTargets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealershipProductTargets_Products" Association="AutosalesModel.Store.FK_DealershipProductTargets_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="DealershipProductTargets" EntitySet="DealershipProductTargets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealershipServices_Dealerships1" Association="AutosalesModel.Store.FK_DealershipServices_Dealerships1">
+            <End Role="Dealerships" EntitySet="Dealerships" />
+            <End Role="DealershipServices" EntitySet="DealershipServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeAwards_Employees" Association="AutosalesModel.Store.FK_EmployeeAwards_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmployeeAwards" EntitySet="EmployeeAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Dealerships" Association="AutosalesModel.Store.FK_Employees_Dealerships">
+            <End Role="Dealerships" EntitySet="Dealerships" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductAwards_Products" Association="AutosalesModel.Store.FK_ProductAwards_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductAwards" EntitySet="ProductAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTransactions_Dealerships" Association="AutosalesModel.Store.FK_SalesTransactions_Dealerships">
+            <End Role="Dealerships" EntitySet="Dealerships" />
+            <End Role="SalesTransactions" EntitySet="SalesTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTransactions_Employees" Association="AutosalesModel.Store.FK_SalesTransactions_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SalesTransactions" EntitySet="SalesTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTransactions_Products" Association="AutosalesModel.Store.FK_SalesTransactions_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="SalesTransactions" EntitySet="SalesTransactions" />
+          </AssociationSet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'igAutoDealership.dbo.DealershipAwards' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="DealershipAwards">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DealershipID" Type="nvarchar" MaxLength="128" />
+          <Property Name="Award" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DealershipProductTargets">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="DealershipID" Type="nvarchar" MaxLength="128" />
+          <Property Name="ProductSKU" Type="nvarchar" MaxLength="25" />
+          <Property Name="YearlyRevenueTarget" Type="real" />
+          <Property Name="YearlyVolumeTarget" Type="real" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Dealerships">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="Latitude" Type="real" />
+          <Property Name="Longitude" Type="real" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Region" Type="nvarchar" MaxLength="20" />
+          <Property Name="EstablishDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="GeneralManager" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'igAutoDealership.dbo.DealershipServices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="DealershipServices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DealershipID" Type="nvarchar" MaxLength="128" />
+          <Property Name="Service" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'igAutoDealership.dbo.EmployeeAwards' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EmployeeAwards">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="128" />
+          <Property Name="Award" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="DealershipID" Type="nvarchar" MaxLength="128" />
+          <Property Name="HireDate" Type="datetime" />
+          <Property Name="YearlyRevenueTarget" Type="real" />
+          <Property Name="YearlyVolumeTarget" Type="real" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'igAutoDealership.dbo.ProductAwards' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ProductAwards">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductSKU" Type="nvarchar" MaxLength="25" />
+          <Property Name="Award" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="SKU" />
+          </Key>
+          <Property Name="SKU" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="UnitCost" Type="real" />
+          <Property Name="YearlyRevenueTarget" Type="real" />
+          <Property Name="YearlyVolumeTarget" Type="real" />
+          <Property Name="HP" Type="int" />
+          <Property Name="Doors" Type="int" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="MilesPerGallon" Type="nvarchar" MaxLength="50" />
+          <Property Name="SafetyRanking" Type="real" />
+          <Property Name="ConsumerRating" Type="real" />
+          <Property Name="UseCategory" Type="nvarchar" MaxLength="100" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="text" />
+          <Property Name="DirectorName" Type="nvarchar" MaxLength="255" />
+          <Property Name="DirectorEmail" Type="nvarchar" MaxLength="255" />
+          <Property Name="DirectorPhone" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SalesTransactions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="128" />
+          <Property Name="PurchaseDate" Type="datetime" />
+          <Property Name="ProductSKU" Type="nvarchar" MaxLength="25" />
+          <Property Name="ProductUnitCost" Type="real" />
+          <Property Name="ProductQuantity" Type="int" />
+          <Property Name="ProductTotalCost" Type="real" />
+          <Property Name="DealershipID" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_DealershipAwards_Dealerships">
+          <End Role="Dealerships" Type="AutosalesModel.Store.Dealerships" Multiplicity="0..1" />
+          <End Role="DealershipAwards" Type="AutosalesModel.Store.DealershipAwards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealerships">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DealershipAwards">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealershipProductTargets_Dealerships">
+          <End Role="Dealerships" Type="AutosalesModel.Store.Dealerships" Multiplicity="0..1" />
+          <End Role="DealershipProductTargets" Type="AutosalesModel.Store.DealershipProductTargets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealerships">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DealershipProductTargets">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealershipProductTargets_Products">
+          <End Role="Products" Type="AutosalesModel.Store.Products" Multiplicity="0..1" />
+          <End Role="DealershipProductTargets" Type="AutosalesModel.Store.DealershipProductTargets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="SKU" />
+            </Principal>
+            <Dependent Role="DealershipProductTargets">
+              <PropertyRef Name="ProductSKU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealershipServices_Dealerships1">
+          <End Role="Dealerships" Type="AutosalesModel.Store.Dealerships" Multiplicity="0..1" />
+          <End Role="DealershipServices" Type="AutosalesModel.Store.DealershipServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealerships">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DealershipServices">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeAwards_Employees">
+          <End Role="Employees" Type="AutosalesModel.Store.Employees" Multiplicity="0..1" />
+          <End Role="EmployeeAwards" Type="AutosalesModel.Store.EmployeeAwards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeAwards">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Dealerships">
+          <End Role="Dealerships" Type="AutosalesModel.Store.Dealerships" Multiplicity="0..1" />
+          <End Role="Employees" Type="AutosalesModel.Store.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealerships">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductAwards_Products">
+          <End Role="Products" Type="AutosalesModel.Store.Products" Multiplicity="0..1" />
+          <End Role="ProductAwards" Type="AutosalesModel.Store.ProductAwards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="SKU" />
+            </Principal>
+            <Dependent Role="ProductAwards">
+              <PropertyRef Name="ProductSKU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTransactions_Dealerships">
+          <End Role="Dealerships" Type="AutosalesModel.Store.Dealerships" Multiplicity="0..1" />
+          <End Role="SalesTransactions" Type="AutosalesModel.Store.SalesTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealerships">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SalesTransactions">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTransactions_Employees">
+          <End Role="Employees" Type="AutosalesModel.Store.Employees" Multiplicity="0..1" />
+          <End Role="SalesTransactions" Type="AutosalesModel.Store.SalesTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SalesTransactions">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTransactions_Products">
+          <End Role="Products" Type="AutosalesModel.Store.Products" Multiplicity="0..1" />
+          <End Role="SalesTransactions" Type="AutosalesModel.Store.SalesTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="SKU" />
+            </Principal>
+            <Dependent Role="SalesTransactions">
+              <PropertyRef Name="ProductSKU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutosalesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AutosalesContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="DealershipProductTargets" EntityType="AutosalesModel.DealershipProductTarget" />
+          <EntitySet Name="Dealerships" EntityType="AutosalesModel.Dealership" />
+          <EntitySet Name="Employees" EntityType="AutosalesModel.Employee" />
+          <EntitySet Name="Products" EntityType="AutosalesModel.Product" />
+          <EntitySet Name="Regions" EntityType="AutosalesModel.Region" />
+          <EntitySet Name="SalesTransactions" EntityType="AutosalesModel.SalesTransaction" />
+          <EntitySet Name="sysdiagrams" EntityType="AutosalesModel.sysdiagram" />
+          <AssociationSet Name="FK_DealershipProductTargets_Dealerships" Association="AutosalesModel.FK_DealershipProductTargets_Dealerships">
+            <End Role="Dealerships" EntitySet="Dealerships" />
+            <End Role="DealershipProductTargets" EntitySet="DealershipProductTargets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealershipProductTargets_Products" Association="AutosalesModel.FK_DealershipProductTargets_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="DealershipProductTargets" EntitySet="DealershipProductTargets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Dealerships" Association="AutosalesModel.FK_Employees_Dealerships">
+            <End Role="Dealerships" EntitySet="Dealerships" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTransactions_Dealerships" Association="AutosalesModel.FK_SalesTransactions_Dealerships">
+            <End Role="Dealerships" EntitySet="Dealerships" />
+            <End Role="SalesTransactions" EntitySet="SalesTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTransactions_Employees" Association="AutosalesModel.FK_SalesTransactions_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SalesTransactions" EntitySet="SalesTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTransactions_Products" Association="AutosalesModel.FK_SalesTransactions_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="SalesTransactions" EntitySet="SalesTransactions" />
+          </AssociationSet>
+          <EntitySet Name="DealershipAwards" EntityType="AutosalesModel.DealershipAward" />
+          <EntitySet Name="DealershipServices" EntityType="AutosalesModel.DealershipService" />
+          <EntitySet Name="EmployeeAwards" EntityType="AutosalesModel.EmployeeAward" />
+          <EntitySet Name="ProductAwards" EntityType="AutosalesModel.ProductAward" />
+          <AssociationSet Name="FK_DealershipAwards_Dealerships" Association="AutosalesModel.FK_DealershipAwards_Dealerships">
+            <End Role="Dealership" EntitySet="Dealerships" />
+            <End Role="DealershipAward" EntitySet="DealershipAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealershipServices_Dealerships1" Association="AutosalesModel.FK_DealershipServices_Dealerships1">
+            <End Role="Dealership" EntitySet="Dealerships" />
+            <End Role="DealershipService" EntitySet="DealershipServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeAwards_Employees" Association="AutosalesModel.FK_EmployeeAwards_Employees">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeeAward" EntitySet="EmployeeAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductAwards_Products" Association="AutosalesModel.FK_ProductAwards_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductAward" EntitySet="ProductAwards" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DealershipProductTarget">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="DealershipID" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="ProductSKU" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="YearlyRevenueTarget" Type="Single" />
+          <Property Name="YearlyVolumeTarget" Type="Single" />
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Dealership" Relationship="AutosalesModel.FK_DealershipProductTargets_Dealerships" FromRole="DealershipProductTargets" ToRole="Dealerships" />
+          <NavigationProperty Name="Product" Relationship="AutosalesModel.FK_DealershipProductTargets_Products" FromRole="DealershipProductTargets" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Dealership">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Latitude" Type="Single" />
+          <Property Name="Longitude" Type="Single" />
+          <Property Name="Country" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Region" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="DealershipProductTargets" Relationship="AutosalesModel.FK_DealershipProductTargets_Dealerships" FromRole="Dealerships" ToRole="DealershipProductTargets" />
+          <NavigationProperty Name="Employees" Relationship="AutosalesModel.FK_Employees_Dealerships" FromRole="Dealerships" ToRole="Employees" />
+          <NavigationProperty Name="SalesTransactions" Relationship="AutosalesModel.FK_SalesTransactions_Dealerships" FromRole="Dealerships" ToRole="SalesTransactions" />
+          <Property Type="String" Name="EstablishDate" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Image" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GeneralManager" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DealershipAwards" Relationship="AutosalesModel.FK_DealershipAwards_Dealerships" FromRole="Dealership" ToRole="DealershipAward" />
+          <NavigationProperty Name="DealershipServices" Relationship="AutosalesModel.FK_DealershipServices_Dealerships1" FromRole="Dealership" ToRole="DealershipService" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Gender" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="DealershipID" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="HireDate" Type="DateTime" Precision="3" />
+          <Property Name="YearlyRevenueTarget" Type="Single" />
+          <Property Name="YearlyVolumeTarget" Type="Single" />
+          <NavigationProperty Name="Dealership" Relationship="AutosalesModel.FK_Employees_Dealerships" FromRole="Employees" ToRole="Dealerships" />
+          <NavigationProperty Name="SalesTransactions" Relationship="AutosalesModel.FK_SalesTransactions_Employees" FromRole="Employees" ToRole="SalesTransactions" />
+          <Property Type="String" Name="Image" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmployeeAwards" Relationship="AutosalesModel.FK_EmployeeAwards_Employees" FromRole="Employee" ToRole="EmployeeAward" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="SKU" />
+          </Key>
+          <Property Name="SKU" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Category" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UnitCost" Type="Single" />
+          <Property Name="YearlyRevenueTarget" Type="Single" />
+          <Property Name="YearlyVolumeTarget" Type="Single" />
+          <Property Name="HP" Type="Int32" />
+          <Property Name="Doors" Type="Int32" />
+          <Property Name="Model" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="DealershipProductTargets" Relationship="AutosalesModel.FK_DealershipProductTargets_Products" FromRole="Products" ToRole="DealershipProductTargets" />
+          <NavigationProperty Name="SalesTransactions" Relationship="AutosalesModel.FK_SalesTransactions_Products" FromRole="Products" ToRole="SalesTransactions" />
+          <Property Type="String" Name="MilesPerGallon" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Single" Name="SafetyRanking" />
+          <Property Type="Single" Name="ConsumerRating" />
+          <Property Type="String" Name="UseCategory" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Image" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductAwards" Relationship="AutosalesModel.FK_ProductAwards_Products" FromRole="Product" ToRole="ProductAward" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DirectorName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DirectorEmail" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DirectorPhone" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SalesTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="ProductSKU" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="ProductUnitCost" Type="Single" />
+          <Property Name="ProductQuantity" Type="Int32" />
+          <Property Name="ProductTotalCost" Type="Single" />
+          <Property Name="DealershipID" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Dealership" Relationship="AutosalesModel.FK_SalesTransactions_Dealerships" FromRole="SalesTransactions" ToRole="Dealerships" />
+          <NavigationProperty Name="Employee" Relationship="AutosalesModel.FK_SalesTransactions_Employees" FromRole="SalesTransactions" ToRole="Employees" />
+          <NavigationProperty Name="Product" Relationship="AutosalesModel.FK_SalesTransactions_Products" FromRole="SalesTransactions" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_DealershipProductTargets_Dealerships">
+          <End Role="Dealerships" Type="AutosalesModel.Dealership" Multiplicity="0..1" />
+          <End Role="DealershipProductTargets" Type="AutosalesModel.DealershipProductTarget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealerships">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DealershipProductTargets">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealershipProductTargets_Products">
+          <End Role="Products" Type="AutosalesModel.Product" Multiplicity="0..1" />
+          <End Role="DealershipProductTargets" Type="AutosalesModel.DealershipProductTarget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="SKU" />
+            </Principal>
+            <Dependent Role="DealershipProductTargets">
+              <PropertyRef Name="ProductSKU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Dealerships">
+          <End Role="Dealerships" Type="AutosalesModel.Dealership" Multiplicity="0..1" />
+          <End Role="Employees" Type="AutosalesModel.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealerships">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTransactions_Dealerships">
+          <End Role="Dealerships" Type="AutosalesModel.Dealership" Multiplicity="0..1" />
+          <End Role="SalesTransactions" Type="AutosalesModel.SalesTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealerships">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SalesTransactions">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTransactions_Employees">
+          <End Role="Employees" Type="AutosalesModel.Employee" Multiplicity="0..1" />
+          <End Role="SalesTransactions" Type="AutosalesModel.SalesTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SalesTransactions">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTransactions_Products">
+          <End Role="Products" Type="AutosalesModel.Product" Multiplicity="0..1" />
+          <End Role="SalesTransactions" Type="AutosalesModel.SalesTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="SKU" />
+            </Principal>
+            <Dependent Role="SalesTransactions">
+              <PropertyRef Name="ProductSKU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DealershipAward">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DealershipID" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Award" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dealership" Relationship="AutosalesModel.FK_DealershipAwards_Dealerships" FromRole="DealershipAward" ToRole="Dealership" />
+        </EntityType>
+        <EntityType Name="DealershipService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DealershipID" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Service" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dealership" Relationship="AutosalesModel.FK_DealershipServices_Dealerships1" FromRole="DealershipService" ToRole="Dealership" />
+        </EntityType>
+        <EntityType Name="EmployeeAward">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EmployeeID" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Award" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="AutosalesModel.FK_EmployeeAwards_Employees" FromRole="EmployeeAward" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="ProductAward">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProductSKU" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Award" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="AutosalesModel.FK_ProductAwards_Products" FromRole="ProductAward" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_DealershipAwards_Dealerships">
+          <End Type="AutosalesModel.Dealership" Role="Dealership" Multiplicity="0..1" />
+          <End Type="AutosalesModel.DealershipAward" Role="DealershipAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealership">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DealershipAward">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealershipServices_Dealerships1">
+          <End Type="AutosalesModel.Dealership" Role="Dealership" Multiplicity="0..1" />
+          <End Type="AutosalesModel.DealershipService" Role="DealershipService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealership">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DealershipService">
+              <PropertyRef Name="DealershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeAwards_Employees">
+          <End Type="AutosalesModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="AutosalesModel.EmployeeAward" Role="EmployeeAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeAward">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductAwards_Products">
+          <End Type="AutosalesModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="AutosalesModel.ProductAward" Role="ProductAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="SKU" />
+            </Principal>
+            <Dependent Role="ProductAward">
+              <PropertyRef Name="ProductSKU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AutosalesModelStoreContainer" CdmEntityContainer="AutosalesContext">
+          <EntitySetMapping Name="DealershipProductTargets">
+            <EntityTypeMapping TypeName="AutosalesModel.DealershipProductTarget">
+              <MappingFragment StoreEntitySet="DealershipProductTargets">
+                <ScalarProperty Name="DealershipID" ColumnName="DealershipID" />
+                <ScalarProperty Name="ProductSKU" ColumnName="ProductSKU" />
+                <ScalarProperty Name="YearlyRevenueTarget" ColumnName="YearlyRevenueTarget" />
+                <ScalarProperty Name="YearlyVolumeTarget" ColumnName="YearlyVolumeTarget" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dealerships">
+            <EntityTypeMapping TypeName="AutosalesModel.Dealership">
+              <MappingFragment StoreEntitySet="Dealerships">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="GeneralManager" ColumnName="GeneralManager" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="EstablishDate" ColumnName="EstablishDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="AutosalesModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="DealershipID" ColumnName="DealershipID" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="YearlyRevenueTarget" ColumnName="YearlyRevenueTarget" />
+                <ScalarProperty Name="YearlyVolumeTarget" ColumnName="YearlyVolumeTarget" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="AutosalesModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="UseCategory" ColumnName="UseCategory" />
+                <ScalarProperty Name="ConsumerRating" ColumnName="ConsumerRating" />
+                <ScalarProperty Name="SafetyRanking" ColumnName="SafetyRanking" />
+                <ScalarProperty Name="MilesPerGallon" ColumnName="MilesPerGallon" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+                <ScalarProperty Name="YearlyRevenueTarget" ColumnName="YearlyRevenueTarget" />
+                <ScalarProperty Name="YearlyVolumeTarget" ColumnName="YearlyVolumeTarget" />
+                <ScalarProperty Name="HP" ColumnName="HP" />
+                <ScalarProperty Name="Doors" ColumnName="Doors" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="AutosalesModel.Region">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DirectorName" ColumnName="DirectorName" />
+                <ScalarProperty Name="DirectorEmail" ColumnName="DirectorEmail" />
+                <ScalarProperty Name="DirectorPhone" ColumnName="DirectorPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesTransactions">
+            <EntityTypeMapping TypeName="AutosalesModel.SalesTransaction">
+              <MappingFragment StoreEntitySet="SalesTransactions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="ProductSKU" ColumnName="ProductSKU" />
+                <ScalarProperty Name="ProductUnitCost" ColumnName="ProductUnitCost" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductTotalCost" ColumnName="ProductTotalCost" />
+                <ScalarProperty Name="DealershipID" ColumnName="DealershipID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AutosalesModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DealershipAwards">
+            <EntityTypeMapping TypeName="AutosalesModel.DealershipAward">
+              <MappingFragment StoreEntitySet="DealershipAwards">
+                <ScalarProperty Name="Award" ColumnName="Award" />
+                <ScalarProperty Name="DealershipID" ColumnName="DealershipID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DealershipServices">
+            <EntityTypeMapping TypeName="AutosalesModel.DealershipService">
+              <MappingFragment StoreEntitySet="DealershipServices">
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="DealershipID" ColumnName="DealershipID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeAwards">
+            <EntityTypeMapping TypeName="AutosalesModel.EmployeeAward">
+              <MappingFragment StoreEntitySet="EmployeeAwards">
+                <ScalarProperty Name="Award" ColumnName="Award" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductAwards">
+            <EntityTypeMapping TypeName="AutosalesModel.ProductAward">
+              <MappingFragment StoreEntitySet="ProductAwards">
+                <ScalarProperty Name="Award" ColumnName="Award" />
+                <ScalarProperty Name="ProductSKU" ColumnName="ProductSKU" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

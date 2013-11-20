@@ -1,0 +1,29 @@
+﻿<script type="text/javascript">
+    window.addEventListener('load', function () {
+        FastClick.attach(document.body);
+    }, false);
+
+    Autosales.Config.baseUrl = "@System.Configuration.ConfigurationManager.AppSettings["baseUrl"]";
+    Autosales.Config.apiUrl = "@System.Configuration.ConfigurationManager.AppSettings["apiUrl"]";
+
+    $(document).ready(function () {
+        if ($.ig.util.isIE9) {
+            $.support.cors = true;
+        }
+        
+        var autosales = new Autosales.Init();
+    });
+</script>
+ 
+<script id="regionTooltipTemplate" type="text/x-ig-tmpl">        
+    <div>
+        <span id="tooltipValue">${item.Name}</span>    
+    </div>       
+</script>
+
+<div id="header"></div>
+
+<div id="panels">
+    <div id="filter"></div>
+</div>
+

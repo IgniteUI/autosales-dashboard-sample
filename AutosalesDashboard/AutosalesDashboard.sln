@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutosalesDashboard", "AutosalesDashboard\AutosalesDashboard.csproj", "{F3E29C9B-6006-4FE1-9D39-2BF07577B2D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{05734583-1C6F-4B3E-8551-6A7D89BB1CF9} = {05734583-1C6F-4B3E-8551-6A7D89BB1CF9}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{016D72AF-FEA5-4166-8BBB-31E182C80B55}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutosalesWebAPI", "AutosalesWebAPI\AutosalesWebAPI.csproj", "{05734583-1C6F-4B3E-8551-6A7D89BB1CF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3E29C9B-6006-4FE1-9D39-2BF07577B2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3E29C9B-6006-4FE1-9D39-2BF07577B2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3E29C9B-6006-4FE1-9D39-2BF07577B2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3E29C9B-6006-4FE1-9D39-2BF07577B2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05734583-1C6F-4B3E-8551-6A7D89BB1CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05734583-1C6F-4B3E-8551-6A7D89BB1CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05734583-1C6F-4B3E-8551-6A7D89BB1CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05734583-1C6F-4B3E-8551-6A7D89BB1CF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

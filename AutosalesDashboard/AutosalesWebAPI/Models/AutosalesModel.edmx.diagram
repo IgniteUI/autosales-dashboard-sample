@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="768d04bc3a5e49cd9c1442301d9c5d3b" Name="Diagram1">
+        <EntityTypeShape EntityType="AutosalesModel.DealershipProductTarget" Width="1.5" PointX="0.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutosalesModel.Dealership" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutosalesModel.Employee" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutosalesModel.Product" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutosalesModel.Region" Width="1.5" PointX="8.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutosalesModel.SalesTransaction" Width="1.5" PointX="4.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutosalesModel.sysdiagram" Width="1.5" PointX="8.625" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="AutosalesModel.FK_DealershipProductTargets_Dealerships" ManuallyRouted="false" />
+        <AssociationConnector Association="AutosalesModel.FK_DealershipProductTargets_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="AutosalesModel.FK_Employees_Dealerships" ManuallyRouted="false" />
+        <AssociationConnector Association="AutosalesModel.FK_SalesTransactions_Dealerships" ManuallyRouted="false" />
+        <AssociationConnector Association="AutosalesModel.FK_SalesTransactions_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="AutosalesModel.FK_SalesTransactions_Products" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AutosalesModel.DealershipAward" Width="1.5" PointX="0.5" PointY="7.375" />
+        <EntityTypeShape EntityType="AutosalesModel.DealershipService" Width="1.5" PointX="2.375" PointY="7.375" />
+        <EntityTypeShape EntityType="AutosalesModel.EmployeeAward" Width="1.5" PointX="4.125" PointY="5.875" />
+        <EntityTypeShape EntityType="AutosalesModel.ProductAward" Width="1.5" PointX="5.875" PointY="5.875" />
+        <AssociationConnector Association="AutosalesModel.FK_DealershipAwards_Dealerships" />
+        <AssociationConnector Association="AutosalesModel.FK_DealershipServices_Dealerships1" />
+        <AssociationConnector Association="AutosalesModel.FK_EmployeeAwards_Employees" />
+        <AssociationConnector Association="AutosalesModel.FK_ProductAwards_Products" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

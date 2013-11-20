@@ -1,0 +1,85 @@
+﻿var Autosales = Autosales || {};
+
+// Define application resource
+Autosales.Resources = {
+    General: {
+        Title: "自動車販売ショーケース",
+        AboutTitle: "自動車販売の詳細",
+        ShowcaseInfo: "<div class='ui-dialog-wrap'><h1>AutoSales について</h1><p>セールス ダッシュボード サンプルは、マップ、データ チャート、グリッド、およびブレット グラフ コントロールの機能を 1 つのアプリケーションに統合しました。ダッシュボードは、販売および売上情報を表示します。ユーザーが集計されたデータを参照するか、ドリル ダウンして地域、モデル、ディーラー、または製品ラインの詳細データを参照できます。</p><h1>Infragistics コントロール:</h1><div class='control-sprite-wrap'><span class='dialog-sprite ds-map'></span><span>Map</span><span class='dialog-sprite ds-grid'></span><span>Grid</span><span class='dialog-sprite ds-chart'></span><span>Chart</span><span class='dialog-sprite ds-bulletgraph'></span><span>Bulletgraph</span></div><a href='http://jp.igniteui.com/autosales-dashboard-sample-download-ja'>ソース コードのダウンロード<span class='arrowDown'></span></a><span class='dialog-qr'><span>スキャンしてモバイル デバイスで表示</span><div id='barcode'></div></span></div><div class='dialog-igniteui'><img src='${BaseUrl}Content/images/igniteui.png'></div><div class='dialog-infragistics'><img src='${BaseUrl}Content/images/infragistics.png'></div>",
+        Target: "目標",
+        Loading: "読み込んでいます…",
+        Regional: "地域の",
+        Dealership: "販売代理店",
+        ErrorInitPanel: "有効なパネルを初期化してください。",
+        ErrorNoDataAvailableForSelectedPeriod: "選択した期間のデータがありません。",
+        MessageForSupportedWidth: "このアプリケーションをデスクトップ、iPad、または iPhone で表示してください。"
+    },
+    Filters: {
+        Select: "選択:",
+        OrDealer: "またはディーラー",
+        In: "in",
+        Back: "戻る",
+        Measure: "メジャー",
+        Revenue: "売上",
+        Volume: "出来高",
+        Region: "地域",
+        Dealer: "ディーラー",
+        Period: "期間",
+        TwelveMonths: "12 か月",
+        Year: "年",
+        Quarter: "四半期",
+        Month: "月",
+        Week: "週"
+    },
+    Dashboard: {
+        Sales: "売上",
+        Target: " / 目標",
+        Current: "現在",
+        Previous: "以前",
+        SalesStatus: "売上状況",
+        CarModels: "自動車モデル",
+        NationalTopRegions: "上位の地域",
+        DealershipsLabel: "販売代理店",
+        SalesPersonLabel: "営業担当者",
+        Name: "名前",
+        Graph: "売上目標 %",
+        Change: "変更",
+        Current: "(最近)今",
+        Previous: "(過去)先"
+    },
+    Status: {
+        SalesStatus: "売上状況",
+        CarModels: "モデル",
+        NationalTopRegions: "上位の地域",
+        Name: "名前",
+        Actual: "実際",
+        Target: "ターゲット",
+        ActualSales: "売上",
+        DealershipsLabel: "販売代理店",
+        SalesPersonLabel: "営業担当者"
+    },
+    Detail: {
+        Region: "地域",
+        Of: "/",
+        RegionalDirector: "地域責任者",
+        In: "In",
+        Dealers: "販売代理店",
+        PreviousYearSales: "前年売上",
+        Open: "開く: ",
+        Dashboard: "ダッシュボード",
+        Car: "自動車",
+        ByManufacturer: "メーカー別",
+        Awards: "受賞",
+        Dealer: "ディーラー",
+        EstablishedSince: "設立: ",
+        GeneralManager: "統括マネージャー",
+        Employees: "名(従業員数)",
+        FeaturesAndServices: "サービス",
+        SalesPerson: "営業担当者",
+        SalesConsultant: "セールス コンサルタント",
+        HireDate: "雇用日",
+        PreviousYearPerformance: "前年パフォーマンス",
+        Ranks: "ランキング: ",
+        Date: "日付"
+    }
+};

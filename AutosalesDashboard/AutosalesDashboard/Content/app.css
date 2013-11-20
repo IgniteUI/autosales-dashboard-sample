@@ -1,0 +1,2203 @@
+.unsupportedDeviceWidth {
+    display: none;
+}
+
+.ui-chart-aligned-gridlines {
+    visibility: visible;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
+body {
+    font-family:'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px; 
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-weight: 600;
+    color:#555555;
+    margin-left: 15px;
+    font-size: 1.3em;
+    text-shadow: 1px 1px 0px #fff;
+}
+
+h1.name {
+    text-shadow: none;
+}
+
+h2 {
+    font-weight: 600;
+    color: #666666;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #fff;
+    margin-top: 11px;
+    margin-bottom: 3px;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+h4 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-weight: inherit;
+    font-size: 1.0em;
+}
+
+#map {
+    position: relative;
+    float: left;
+}
+
+#map_chart_container {
+    opacity: 0.6;
+    -webkit-filter: saturate(60%);
+}
+
+.tooltip {
+    background-color: #555555;
+    border: 1px solid #444444;
+    position: absolute;
+    z-index: 999999;
+    font-size: 0.8em;
+    color: #CCCCCC;
+    padding: 10px;
+}
+    .tooltipHeading a {
+        color: #FFFFFF;
+        font-size: 1.2em;
+    }
+
+    .tooltipValue,
+    .tooltipTarget {
+        display: block;
+    }
+
+
+#header {
+    font-size: 1.1em;
+    border-top: 1px solid #3a3a3a;
+    border-bottom: 1px solid #282828;
+    background-color: #202020;
+    background: linear-gradient(to top, #202020 0%, #414141 100%);
+    background: -webkit-linear-gradient(top, #202020 0%, #414141 100%);
+    color: #FFFFFF;
+    width: 100%;
+    height: 42px;
+    z-index: 9999998;
+    position: fixed;
+    text-align: center;
+    line-height: 42px;
+}
+
+    #header span {
+        background: url('images/ui-sprite.png');
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        margin-top: -8px;
+        margin-left: -26px;
+    }
+
+    #header a, #header a:hover, #header a:visited {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+#backButton {
+    display: inline-block;
+    float: left;
+    color: #fff;
+    text-decoration: none;
+}
+    #backButton span {
+        background-position: 0px -64px;
+        margin-left: 10px;
+    }
+
+#headerContent {
+    display: inline-block;
+}
+    #headerContent span {
+        background-position: 0px -32px;
+    }
+
+#homeButton {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+    #homeButton span {
+        background-position: 0px -48px;
+    }
+
+#infoButton {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+    #infoButton span {
+        background-position: -16px -48px;
+    }
+
+a.closeButton {
+    background: url('images/ui-sprite.png') -16px -80px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    float: right;
+    margin: 5px 15px 0 0;
+    position: relative;
+    z-index: 50;
+}
+
+#filter {
+    top: 54px; 
+    left: 10px;
+    height: 40px;
+    width: 330px;
+    position: absolute;
+    z-index: 9999997;
+}
+
+    #filter.disabled {
+        opacity: 0.6;
+    }
+
+.section.period-sales .boxWrapper span.positive {
+    padding: 2px 5px 2px 2px;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    background-color: #8a9b0f;
+    border: 1px solid #808f0e;
+}
+
+.section.period-sales .boxWrapper span.negative {
+    padding: 2px 5px 2px 2px;
+    font-size: 1em;
+    color: #FFFFFF;
+    background-color: #d0284c;
+    border: 1px solid #c6264a;
+}
+
+.section.period-sales .boxWrapper span.arrow {
+    position: relative;
+    top: 3px;
+    background-image: url('images/ui-sprite.png');
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.section.period-sales .boxWrapper span.negative span.arrow {
+  background-position: -32px -16px;
+}
+
+.section.period-sales .boxWrapper span.positive span.arrow {
+  background-position: -16px -16px;
+}
+
+.panel {
+    height: 649px;
+    font-weight: 600;
+    border: 1px solid #ACACAC;
+    float: left;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 54px; /*seems obsolete for #dashboard, but kicks in other panels. */
+    background: rgba(229,229,229, 1);
+    z-index: 999999;
+    box-shadow: 0px 0px 21px rgba(0,0,0,0.3);
+    background: -webkit-linear-gradient(top,  rgba(229,229,229, 1) 0%,rgba(250,250,250, 1) 30%,rgba(255,255,255, 1) 100%);
+    background: linear-gradient(to bottom,  rgba(229,229,229, 1) 0%,rgba(250,250,250, 1) 30%,rgba(255,255,255, 1) 100%);
+    
+}
+
+#dashboard {
+    width: 328px;
+    margin-top: 103px;
+    height: 600px;
+    background: linear-gradient(to bottom,  rgba(229,229,229, 1) 0%,rgba(250,250,250, 1) 30%,rgba(255,255,255, 1) 75%, #e0e0e0 100%);
+    background: -webkit-linear-gradient(top,  rgba(229,229,229, 1) 0%,rgba(250,250,250, 1) 30%,rgba(255,255,255, 1) 75%, #e0e0e0 100%);
+}
+
+#status {
+    width: 600px;
+}
+
+#detail.panel {
+    width: 420px;
+    background: #F0F0F0!important;
+}
+
+#panels {
+    width: 1600px;
+}
+
+.extendedFilter {
+    position: absolute;
+    top: 52px;
+    width: 338px;
+    left:0px;
+    display: none;
+    max-height: 368px;
+    overflow: auto;
+}
+
+a#showProducts, a#showRegions {
+    background-position: 0px -80px; 
+    background-image: url('images/ui-sprite.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    text-indent: -9999px;
+    margin-left: 5px;
+    top: 1px;
+    position: relative;
+}
+ 
+.period-sales {
+    text-align: center;
+}
+
+.period-sales h2 {
+    text-align: left;
+}
+
+.section.regional-sales, 
+.section.top-regions, 
+.section.period-sales, 
+.section.regional-sales-status h2 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.regional-sales span + span {
+    font-size: 0.78em;
+    color: #666666;
+    float: right;
+    margin-top: 5px;
+}
+
+.regional-sales span + span strong {
+    font-size: 1.1em;
+}
+
+.period-sales .boxWrapper {
+    padding-right: 8px;
+    margin: 0 5px 10px 0px;
+    border-right: 1px solid #cccccc;
+} 
+
+.period-sales .boxWrapper + .boxWrapper + .boxWrapper {
+    border:0;
+    margin-right: 0;
+    padding-right: 0;
+} 
+
+.period-sales .boxWrapper.sales-highlight span {
+    color: #0099CC;
+    padding-left:0px;
+}
+
+.period-sales .boxWrapper span {
+    color: #999999;
+    font-size: 1.1em;
+}
+
+.period-sales .boxWrapper span + span {
+    font-size: 0.6em;
+    text-transform: uppercase;
+    position: relative;
+    top: -3px;
+}
+
+.period-sales .boxWrapper strong {
+    color: #333333;
+    position: relative;
+    top:1px;
+}
+
+.regional-sales-status {
+    border-bottom: 1px solid #B4B4B4;
+}
+
+.top-regions {
+    border-top: 1px solid #FFFFFF;
+    background-color: #E0E0E0;
+    background-image: linear-gradient(rgba(51, 51, 51, 0.1) 0px, rgba(51, 51, 51, 0) 25px);
+}
+
+#bulletGraph {
+    margin-top: 5px;
+}
+
+#chart .ui-widget-content {
+    background: none;
+}
+
+.boxWrapper {
+    display: inline-block;
+    margin: 4px;
+    text-align: center;
+}
+    #filter .boxWrapper {
+        margin: 0px;
+    }
+
+    .boxWrapper span:first-child {
+        display: block;
+    }
+
+
+span.number {
+    background-color: #666666;
+    border: 1px solid #565656;
+    color: #FFFFFF;
+    padding:2px 3px;
+    margin-right: 5px;
+    font-size: 0.9em; 
+}
+
+/*#status1 .dealers, #status1 .carModels {
+    height: 600px;
+}*/
+
+.dealers:hover, .top-regions:hover, .regional-sales-status > h2 {
+    cursor: pointer;
+}
+
+.ui-widget-content {
+    border: none;
+}
+
+.overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: #FFFFFF;
+    opacity: 0.8;
+    z-index:9999999;
+}
+    .overlay img {
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        margin-top: -32px;
+        margin-left: -16px;
+    }
+
+/*details panel*/
+
+.sprite-detail {
+    background-image: url('images/ui-sprite.png');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+    .body-info-stats .sprite-detail,
+    .body-info-past .sprite-detail {
+        display: inline-block; 
+    }
+
+.head-info {
+    height: 181px;
+    width: 100%;
+    background-image: linear-gradient(-22deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -webkit-linear-gradient(-22deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    border-bottom: 1px solid #B4B4B4;
+}
+
+    .head-info h1 {
+        margin: 10px 0 -5px 10px;
+        font-size: 1.063em;
+        color: #444444;
+        font-weight: 600;
+        text-shadow: none;
+    }
+
+    .head-info h4 {
+        color: #878787;
+        text-transform: uppercase;
+        font-size: 0.7em;
+        margin: 0 0 0 10px;
+    } 
+
+    .head-info span {
+        margin-left: 10px;
+        font-weight: 400;
+        display: block;
+        font-size: 0.75em;
+        color: #878787;
+    }
+        .head-info span.up-gap {
+            text-transform: uppercase;
+            margin-bottom: 21px;
+            font-size: 0.70em;
+            margin-top: 5px;
+        }
+
+    .head-info strong {
+        color: #666666;
+        display: block;
+        font-size: 0.750em;
+        margin-top: 3px;
+        margin-left: 10px;
+        
+    }
+
+    .head-info strong:last-child {
+        margin-bottom: 5px;
+    }
+
+    .head-info span.mini-icon {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        top: 3px;
+        float: left;
+        margin-right: 5px;
+    }
+
+    .head-info.dealerships-info {
+        height: 225px;
+    }
+
+    .head-info.dealerships-info img {
+        top: 60px
+    }
+
+.head-info-header {
+    height: 39px;
+    background: #E0E0E0;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #B4B4B4;
+}
+    .head-info-header h3 {
+        font-size: 1em;
+        display: inline-block;
+        margin: 0;
+        color: #7F7F7F;
+        text-shadow: 1px 1px 0px #fff;
+    }
+
+
+.dealerships-icon {background-position: -32px -32px; width: 21px!important;}
+.employees-icon {background-position: -48px 0px;}
+
+
+.head-info img {
+    position: absolute;
+    top: 40px;
+    right: 0;
+}
+
+.head-info span.email-icon, 
+.head-info span.smartphone-icon,
+.head-info span.location-icon {
+    background-color: #E0E0E0;
+    border: 1px solid #B4B4B4;
+    display: block;
+    text-indent: -9999px; 
+    font-size: 0;
+    float: left;
+    margin-top: 8px;
+}
+    .location-icon a {
+        display: block;
+        height: 100%;
+    }
+
+.head-info .closeButton {
+    top: 6px;
+}
+
+.arrowUp,
+.arrowDown {
+    width: 16px;
+    height: 16px;
+    background-image: url('images/ui-sprite.png'); 
+    display: inline-block;
+    float: left; 
+    margin: 12px 0 0 0px;
+    position: absolute;
+}
+
+    .arrowDown {
+        background-position: -32px 0px;
+        left: 60px;
+    }
+
+    .arrowUp {
+        left: 15px;
+        background-position: -16px 0px;
+    }
+
+.clickRight { 
+    width: 16px;
+    height: 16px;
+    background-image: url('images/ui-sprite.png');
+    background-position: 0 -130px;
+    display: inline-block;
+    float: right;
+    margin-right: 5px;
+}
+    .clickRight.clickRightWhite  {
+        background-position: -16px -130px;
+        margin-top: 3px;
+    }
+
+.smartphone-icon    {background-position:  -0px -210px;}
+.location-icon      {background-position:  -0px -241px;}
+.email-icon         {background-position: -32px  -48px;}
+.cash-icon          {background-position: -32px -178px;}
+.units-icon         {background-position: -32px -210px;}
+.star-icon          {background-position:  -0px -273px;}
+.mpg-icon           {background-position: -32px -242px;}
+.horsepower-icon    {background-position: -32px -273px;}
+.safety-icon        {background-position: -32px -146px;}
+.rating-icon        {background-position: -32px -305px;}
+
+
+ /*adjustments, magic numbers*/
+.cash-icon,
+.units-icon,
+.star-icon,
+.mpg-icon,
+.horsepower-icon,
+.safety-icon,
+.rating-icon {
+    display: inline-block; 
+    top:9px; 
+    right: 3px;
+    margin-left: 10px;
+}
+
+h2.prev-years {
+    margin-bottom: -4px;
+}
+
+.body-info-charts {
+    height: 453px;
+    border-top: 1px solid #f3f3f3;
+    background-image: linear-gradient(180deg, #dddddd 0%, #f0f0f0 30%);
+    background-image: -webkit-linear-gradient(-90deg, #dddddd 0%, #f0f0f0 30%);
+    background-color: #f1f1f1;
+}
+
+    .body-info-charts h2,
+    .body-info-charts p {
+        margin: 10px 0 0 10px;
+    }
+
+    .body-info-charts p {
+        color: #666666;
+        font-size: 0.750em;
+        font-weight: 400;
+        width: 40%;
+        float: left;
+        margin-top: 21px;
+    }
+
+#piechart {
+    display: inline-block;
+}
+
+#performanceChart {
+    margin-top: 15px;
+}
+
+div.changeFilterWrap {
+    border-top: 1px solid #007293;
+    background-color: rgba(0, 153, 198, 1);
+    background-image: linear-gradient(180deg, rgba(0, 153, 198, 1) 0px, rgba(0, 131, 170, 1) 39px);
+    background-image: -webkit-linear-gradient(-90deg, rgba(0, 153, 198, 1) 0px, rgba(0, 131, 170, 1) 39px);
+    width: 100%; 
+    height: 39px;
+    line-height: 2.5em;
+    position: absolute;
+    bottom: 0;
+}
+    div.changeFilterWrap.purpleFilter {
+        border-top: 1px solid #363061;
+        background-color: rgba(86, 74, 151, 1);
+        background-image: linear-gradient(180deg, rgba(86, 74, 151, 1) 0px, rgba(73, 64, 130, 1) 39px);
+        background-image: -webkit-linear-gradient(-90deg, rgba(86, 74, 151, 1) 0px, rgba(73, 64, 130, 1) 39px);
+    }
+
+
+div.changeFilterWrap a.changeFilter {
+    color: #fff;
+    font-size: 0.9em;
+    text-shadow: -1px -1px 0px #09617b;
+    padding-left: 10px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    z-index: 1; /*span arrow fix*/
+}
+    div.changeFilterWrap.purpleFilter a.changeFilter {
+        text-shadow: -1px -1px 0px #403b59;
+    }
+
+
+.clickRightArrow {
+    background-image: url('images/ui-sprite.png');
+    background-position: -16px -64px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    float: right;
+    top: 10px; 
+    right: 10px;
+    z-index: 0; /*span arrow fix*/
+}
+
+#detail span.award {
+    font-size: 0.9em;
+    color: #333333;
+    margin-left: 5px;
+}
+
+span.award-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url('images/ui-sprite.png');
+    background-position: -48px -16px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    margin-left: 10px;
+    margin-right: 2px;
+}
+
+.h-award {
+    margin-top: 21px;
+}
+
+.values-wrap {
+    color: #666666;
+    width: 50%;
+    text-align: center;
+    display: inline-block;
+}
+
+.body-info-stats {
+    border-top: 1px solid #f3f3f3;
+    background-color: #E0E0E0;
+    background-image: linear-gradient(180deg, #dddddd 0%, #f0f0f0 30%);
+    background-image: -webkit-linear-gradient(-90deg, #dddddd 0%, #f0f0f0 30%);
+}
+
+    .body-info-stats span {
+        color: #777777;
+        font-size: 0.8em;
+    }
+
+    .body-info-stats p,
+    .body-info-stats li  {
+        color: #666666;
+        font-size: 0.750em;
+        font-weight: 400;
+        padding: 10px 10px;
+        text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+    }
+
+    .body-info-stats ul {
+        padding: 0;
+        margin: 0 0 15px 0;
+        display: inline-block;
+    } 
+
+    .body-info-stats li {
+       font-size: 0.9em;
+       display: block;
+       padding: 0;
+       margin: 7px 0 0 10px;
+    }
+        .body-info-stats li::before {
+            content: '■ ';
+            font-size: 0.9em;
+            position: relative;
+            top: -2px;
+        }
+
+.body-info-past {
+    border-top: 1px solid #B4B4B4;
+    background: linear-gradient(rgba(255, 255, 255, 0.7) 0px, rgba(255, 255, 255, 0) 75%);
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0px, rgba(255, 255, 255, 0) 75%);
+}
+  
+    .body-info-past span {
+        color: #666666;
+        font-size: 0.9em;
+    }
+
+    .body-info-past h2,
+    .body-info-stats h2 {
+        margin-left: 10px;
+    }
+
+    .body-info-past h2:last-child {
+        margin-top: 20px;
+    }
+
+    .body-info-past li {
+        list-style: none;
+        margin: 0;
+        display: inline
+    }
+
+    .body-info-past ol {
+        padding: 0;
+        margin: 0;
+    }
+
+.body-info-stats,
+.body-info-past {
+    padding-bottom: 10px;
+}
+
+
+/* JQuery Framework styles */
+/***************************/
+/* JQuery Framework styles */
+/***************************/
+/* Layout helpers
+----------------------------------*/
+
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.ui-helper-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  line-height: 1.3;
+  text-decoration: none;
+  font-size: 100%;
+  list-style: none;
+}
+
+.ui-helper-clearfix::before,
+.ui-helper-clearfix::after {
+  content: "";
+  display: table;
+}
+
+.ui-helper-clearfix::after {
+  clear: both;
+}
+
+.ui-helper-clearfix {
+  min-height: 0;
+  /* support: IE7 */
+
+}
+.ui-helper-zfix {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0;
+}
+.ui-front {
+  z-index: 100;
+}
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+  cursor: default !important;
+}
+/* Icons
+----------------------------------*/
+/* states and images */
+.ui-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+/* Misc visuals
+----------------------------------*/
+/* Overlays */
+.ui-widget-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*
+ * jQuery UI CSS Framework @VERSION 1.10
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ctl=themeroller
+ */
+/* Component containers
+----------------------------------*/
+
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+  text-decoration: none;
+}
+
+.ui-widget-header.ui-state-default a,
+.ui-widget-header.ui-state-active a,
+.ui-widget-header.ui-state-hover a {
+  color: #ffffff;
+  font-weight: normal;
+  text-shadow: 0 1px 0 rgba(83, 83, 83, 0.8);
+}
+
+/*
+ * jQuery UI Dialog @VERSION
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Dialog#theming
+ */
+
+    .ui-dialog-wrap {
+        margin: 40px 50px 0px 40px;
+    }
+        .ui-dialog-wrap h1 {
+            margin: 0;
+            font-size: 1.125em;
+        }
+
+        .ui-dialog-wrap p {
+            color: #333333;
+            font-size: 0.813em;
+            line-height: 1.8em;
+            margin-bottom: 50px;
+            margin-top: 25px;
+        }
+
+        .ui-dialog-wrap a,
+        .dialog-qr {
+            font-size: 0.813em;
+            font-weight: 600;
+            color: #333333;
+            text-shadow: 1px 1px 0 #FFFFFF;
+        }
+
+        #barcode {
+            display: inline-block;
+        }
+
+    .control-sprite-wrap {
+        margin-top: 25px;
+        margin-bottom: 30px;
+        height: 48px;
+        line-height: 48px;
+    }
+        .control-sprite-wrap span {
+            vertical-align: middle;
+            height: 48px;
+            margin-right: 40px;
+            font-size: 0.875em;
+            color: #666666;
+        }
+
+        span.dialog-sprite {
+            background-image: url('images/dialog-sprite.png');
+            width: 48px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .ds-map {background-position: 0px 0px;}
+        .ds-grid {background-position: -48px 0px;}
+        .ds-chart {background-position: -96px 0px;}
+        .ds-bulletgraph {background-position: -144px 0px}
+
+    .ui-dialog-wrap .arrowDown {
+        position: relative;
+        float: none;
+        top: 3px;
+        left: 5px;
+    } 
+
+    .dialog-qr {
+        margin-top: -12px;
+        height: 66px;
+        float: right;
+
+    }
+        .dialog-qr span {
+            position: relative;
+            bottom: 40%;
+            right: 5px;
+        }
+
+    .dialog-infragistics {
+        height: 28px;
+        line-height: 28px;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        text-align: center;
+        background: #232323;
+        background: -webkit-radial-gradient(center, ellipse cover, #3f3f3f 0%,#232323 100%); 
+        background: radial-gradient(ellipse at center, #3f3f3f 0%,#232323 100%); 
+    }
+
+    .dialog-igniteui {
+        position: absolute;
+        bottom: 28px;
+        width: 100%;
+        height: 41px;
+        line-height: 40px;
+        border-top: 1px solid #bf5a0f;
+        text-align: center;
+        background-color: #ff7814;
+    }
+
+    .ui-dialog .ui-dialog-titlebar {
+        background: linear-gradient(180deg, rgba(51, 51, 51, 0.15) 0px, rgba(51, 51, 51, 0) 32px);
+        background-color: transparent;
+        border-top: 1px solid #f0f1f2;
+        position: absolute;
+        top: 0;
+        height: 64px;
+        width: 100%;
+    }
+
+    div.ui-igdialog-overlay {
+        background: #F5F3F0;
+        opacity: 0.8;
+        -moz-opacity: 0.8;
+    }
+
+    .ui-dialog {
+      border: 1px solid #C1C1C1;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 1);
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 60%, rgba(240, 240, 240, 1) 125%);
+      background-image: -webkit-radial-gradient(circle, rgba(255, 255, 255, 1) 60%, rgba(240, 240, 240, 1) 125%);
+      box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.3);
+    }
+
+    .ui-dialog .ui-dialog-title {
+        float: left;
+        white-space: nowrap;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: .1em 0 .2em 0;
+        color: #333333;
+        text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
+        font-weight: normal!important;
+    }
+
+    .ui-dialog .ui-dialog-titlebar-close .ui-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -8px 0 0 -8px;
+    }
+
+    .ui-dialog .ui-dialog-content {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: none;
+      overflow: auto;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane {
+      text-align: left;
+      border-width: 1px 0 0 0;
+      background-image: none;
+      margin-top: .5em;
+      padding: .3em 1em .5em .4em;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+      float: right;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane button {
+      margin: .5em .4em .5em 0;
+      cursor: pointer;
+    }
+
+    .ui-dialog .ui-resizable-se {
+      width: 12px;
+      height: 12px;
+      right: -5px;
+      bottom: -5px;
+    }
+    .ui-draggable .ui-dialog-titlebar {
+      cursor: move;
+    }
+
+    .ui-igdialog-buttonclose {
+        width: 16px;
+        height: 16px;
+        display: block;
+        float: right;
+        padding: 16px;
+    }
+
+        .ui-igdialog-buttonclose:hover {cursor: pointer;}
+
+        .ui-igdialog-close-icon {
+            width: 16px;
+            height: 16px;
+            background-image: url('images/ui-sprite.png');
+            background-position: -16px -80px;
+        }
+
+
+#info {
+    text-indent: -9999px;
+    background-image: url('images/ui-sprite.png');
+    float: right;
+    width: 32px;
+    height: 32px;
+    background-position: -32px -64px;
+    margin-top: -10px;
+}
+    #info:hover {
+        cursor: pointer;
+    }
+
+#infoPanel {
+    z-index:9999999;
+    overflow: auto;
+    left: 0px;
+    top: 44px;
+    position: fixed;
+    display:none;
+}
+
+/*
+ * jQuery UI Tabs @VERSION
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Tabs#theming
+ */
+
+
+:focus {
+     outline:none!important;
+}
+
+.disabledOverlay {
+  background-color: #ffffff;
+  opacity: 0.5;
+  position: absolute;
+  z-index: 9999999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  cursor: pointer;
+}  
+
+  #dashboard .disabledOverlay {
+    top:-46px;
+    height: calc(100% + 46px);
+    height: -webkit-calc(100% + 46px);
+  }
+
+
+/*DEFAULT TABS */ 
+.ui-tabs {
+  background: transparent;
+  position: relative;
+}
+
+/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav {
+  font-size: 0.9em;
+  background: transparent;
+  border-bottom: 1px solid #cccccc;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.ui-tabs .ui-tabs-nav li {
+  text-align: center;
+  list-style: none;
+  float: left;
+  position: relative;
+  padding: 0;
+  width: 50%;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+  float: left;
+  text-decoration: none;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+  margin-bottom: 0;
+  padding-bottom: 1px;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a,
+.ui-tabs .ui-tabs-nav li.ui-state-disabled a,
+.ui-tabs .ui-tabs-nav li.ui-state-processing a {
+  cursor: text;
+}
+.ui-tabs .ui-tabs-nav li a,
+.ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+  cursor: pointer;
+}
+
+/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel {
+  width: 100%;
+  display: block;
+  padding-top: 5px;
+  border: 0;
+  border-top: 1px solid #fff;
+  background-repeat: no-repeat;
+  background-size: 100% 35px; 
+  background-image: linear-gradient(#e1e1e1 0px, rgba(249, 249, 249, 0) 25px);
+  background-image: -webkit-linear-gradient(#e1e1e1 0px, rgba(249, 249, 249, 0) 25px);
+  border-style: solid;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.ui-tabs-panel .ui-iggrid {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.ui-tabs .ui-tabs-hide {
+  display: none !important;
+}
+
+.ui-tabs-nav.ui-widget-header {
+  background: transparent;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-state-default {
+  line-height: 1.6em;
+  border: 0;
+  background-color: transparent;
+  background-image: linear-gradient(6deg, rgba(51, 51, 51, 0.18) 0%, rgba(51, 51, 51, 0) 40%);
+  background-image: -webkit-linear-gradient(86deg, rgba(51, 51, 51, 0.18) 0%, rgba(51, 51, 51, 0) 40%);
+}
+
+  .ui-tabs .ui-tabs-nav li.ui-state-default a {
+    height: 35px;
+    width: 100%;
+    background: url('images/ui-sprite.png'); 
+    background-position: 0px -95px;
+    background-repeat: no-repeat;
+    color: #999999;
+  }
+
+  /*tab shadow flip*/
+  .ui-tabs .ui-tabs-nav li.ui-state-default:first-child a {
+    background-position: 100% -496px;
+  }
+
+  .ui-tabs .ui-tabs-nav li.ui-state-default:first-child {
+    background-image: linear-gradient(-3deg, rgba(51, 51, 51, 0.18) 0%, rgba(51, 51, 51, 0) 40%);
+    background-image: -webkit-linear-gradient(92deg, rgba(51, 51, 51, 0.18) 0%, rgba(51, 51, 51, 0) 40%);
+  }
+
+.ui-tabs .ui-tabs-nav li.ui-state-active {
+  border-bottom: 5px inset #666666;
+  text-align: center;
+  background-image: none!important; /* the important declaration overrides the :first-child selector's image properties and is nessesary*/
+}
+.ui-tabs .ui-tabs-nav li.ui-state-active a {
+  height: 30px;
+  width: 100%;
+  background: none;
+  color: #333333;
+}
+
+/* FILTER TABS */
+
+#filterTabs .ui-tabs-panel, ul.extendedFilter { 
+  padding: 0;
+  box-shadow:  0px 10px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+#filterTabs .ui-tabs-panel ul {
+  background-color: #FFFFFF;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+  #filterTabs .ui-tabs-panel ul li {
+    background-color: #FFFFFF;
+    list-style: none;
+    height: 45px;
+    line-height: 45px;
+    font-size: 1.0em; 
+    border-bottom: 1px solid #CCCCCC;
+  }
+    #filterTabs .ui-tabs-panel ul li:first-child {
+      text-align: center;
+      background-color: #E0E0E0!important;/*preventive use of !important--hover state*/
+    }
+
+    #filterTabs .ui-tabs-panel ul li:first-child a {
+      font-weight: 600;
+      color: #7F7F7F!important;/*preventive use of !important--hover state*/
+      text-shadow: 1px 1px 0px #FFFFFF;
+    }
+
+    #filterTabs .ui-tabs-panel ul li:hover {
+      background-color: #F4F4F4;
+      font-weight: 600;
+    }
+
+    #filterTabs .ui-tabs-panel ul li a {
+      padding-left: 15px;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      color: #666666;
+    }
+
+    #filterTabs .ui-tabs-panel ul li a:hover {
+      color: #333333;
+    }
+
+    div.tabListIcon {
+      margin-right: 15px;
+      width: 80px;
+      height: 100%;
+      float: right; 
+      background-color: #fafafa;
+      border-left: 1px solid #cccccc;
+    } 
+
+    div.tabListIcon span {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto;
+      position: relative;  
+      top: 50%;
+      margin-top: -16px;
+      background-image: url('images/ui-sprite.png');
+      background-position: 0px -146px;
+      display: block;
+    }
+       div.tabListIcon:hover {
+        background-color: #e8e8e8;
+      } 
+
+    .backFilter span {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      background-image: url('images/ui-sprite.png');
+      background-position: -32px -80px;
+      text-indent: -9999px;
+      position: absolute;
+      left: 15px;
+      top: 15px;
+
+    }
+
+#filter .ui-tabs .ui-tabs-nav ul {
+  width: 320px;
+}
+
+#filter .ui-tabs .ui-tabs-nav {
+  background: #0099cc; 
+  background-image: -webkit-linear-gradient(rgba(0, 153, 198, 1) 0%, rgba(0, 131, 170, 1) 100%);
+  background-image: linear-gradient(rgba(0, 153, 198, 1) 0%, rgba(0, 131, 170, 1) 100%);
+  border-top: 1px solid #007293;
+  text-align: center;
+}
+
+  /*dealer*/
+  .dealer #filter .ui-tabs .ui-tabs-nav {
+    border-top-color: #363061;
+    background-image: -webkit-linear-gradient(#564a97 0%, #4a4083 100%);
+    background-image: linear-gradient(#564a97 0%, #4a4083 100%);
+  }
+
+  .dealer #filter .ui-tabs .ui-tabs-nav li.ui-state-default {
+    border-right: 1px solid #2f2953;
+    border-left: 1px solid #584e92;
+    border-bottom: 1px solid #3a3368;
+  }
+
+  .dealer #filter .ui-tabs .ui-tabs-nav li.ui-state-hover,
+  .dealer #filter .ui-tabs .ui-tabs-nav li.ui-state-active {
+    background: linear-gradient(#483e7f 0%, #302a56 100%);
+    background: -webkit-linear-gradient(#483e7f 0%, #302a56 100%);
+    padding-left: 1px;
+    border-left: none;
+  }
+  
+  .dealer #filter .ui-tabs .ui-tabs-nav span + hr + span{
+    color: #a6a1c4;
+    text-shadow: -1px -1px 0px #453e6e;
+  }
+  
+
+  .dealer #filter .ui-tabs .ui-tabs-nav hr {
+    border-top: #645e89;
+    border-bottom: 1px solid #a8a2c6;
+  }
+
+  .dealer #filter .ui-tabs .ui-tabs-nav li.ui-state-default a {
+    text-shadow: -1px -1px 0px #433e63;
+  }
+
+  /*dealer spans*/
+  .dealer .period-sales .boxWrapper.sales-highlight span {
+    color: #564A97;
+  }
+
+#filter .ui-tabs .ui-tabs-nav li.ui-state-default {
+  font-size: 1.1em;
+  line-height: 0.95em;
+  background: inherit;
+  border: 0;
+  border-right: 1px solid #00556e;
+  border-left: 1px solid #3399CC;
+  border-bottom: 1px solid #006989;
+  display: block;
+  width: 33.3%;
+  padding: 8px 0px 5px 0px;
+  text-align: center;
+  margin: 0;
+  box-sizing:border-box;
+  -moz-box-sizing: border-box;
+}
+
+#filter .ui-tabs .ui-tabs-nav li.ui-state-active {
+  padding-bottom: 10px;
+  background-image: linear-gradient(rgba(0, 105, 137, 1) 0%, rgba(0, 132, 171, 1) 100%);
+  background-image: -webkit-linear-gradient(rgba(0, 105, 137, 1) 0%, rgba(0, 132, 171, 1) 100%);
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.25) inset;
+  padding-left: 1px;
+  border-left: none;
+}
+
+#filter .ui-tabs .ui-tabs-nav li.ui-state-default:last-child  {
+  border-right:0;
+}
+
+  #filter .ui-tabs .ui-tabs-nav li.ui-state-default a {
+    background: none;
+    border-color: #a8a8a8;
+    text-transform: capitalize;
+    color: #fff;
+    text-shadow: -1px -1px 0px #006699;
+    display: inline-block;
+  }
+
+#filter .ui-tabs .ui-tabs-nav li.ui-state-hover {
+  background-image: linear-gradient(rgba(0, 105, 137, 1) 0%, rgba(0, 132, 171, 1) 100%);
+  background-image: -webkit-linear-gradient(rgba(0, 105, 137, 1) 0%, rgba(0, 132, 171, 1) 100%);
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.25) inset;
+  padding-left: 1px;
+  border-left: none;
+}
+  
+  /*dealer*/
+  #filter .ui-tabs .ui-tabs-nav span {
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95em;
+  }
+
+  #filter .ui-tabs .ui-tabs-nav hr {
+    background-color: #3589a2;
+    border-top: 1px solid #3589a2;
+    border-left: 0px solid #0099CC;
+    border-right: 0px solid #0099CC;
+    border-bottom: 1px solid #80c7dc;
+    color: #3589a2;
+    text-shadow: none;
+    margin: 2px auto 0px auto;
+    width: 65%;
+    height: 0px;
+  }
+
+  #filter .ui-tabs .ui-tabs-nav span + hr + span{
+    color: #80c5d9;
+    text-shadow: -1px -1px 0px #0f718e;
+    font-weight: 400;
+    font-size: 0.70em;
+    text-transform: uppercase;
+  }
+
+/**********/
+/* igGrid */
+/**********/
+
+.ui-widget-content.ui-iggrid-tablebody {
+  font-weight: 400;
+  font-size: 0.85em;
+}
+
+/*Status panel grid styling */ 
+
+#status thead {
+    background-color: #E0E0E0;
+}
+
+#status .ui-tabs .ui-tabs-panel {
+    padding-top: 0px;
+    border-top: 0;
+}
+
+#status .ui-tabs .ui-tabs-nav {
+    border-bottom: 1px solid #B4B4B4;
+}
+
+#status thead tr th {
+    border-top: 1px solid #B4B4B4;
+    border-bottom: 1px solid #B4B4B4;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+    #status1 thead tr th {
+        border-top: 0;
+    }
+
+#status thead tr th:first-child {
+    padding-left: 10px;
+}
+
+#status .ui-tabs-panel .ui-iggrid {
+  padding: 0;
+}
+
+#status tbody tr td:nth-child(2) {
+  font-weight: 600;
+}
+
+#status tbody tr:hover {
+  cursor: pointer;
+}
+
+#status .ui-iggrid-tablebody tr {
+  background-color: #ffffff;
+}
+
+#status .ui-iggrid tr td {
+    padding: 10px 5px 10px 0px;
+    border-bottom: 1px solid #CCCCCC;
+}
+  #status .ui-iggrid tr td:first-child {
+    padding-left: 10px; 
+  }
+
+#status .ui-iggrid-headertable {
+  background-color: #E0E0E0; 
+  border-bottom: 1px solid #B4B4B4;
+}
+
+.top-regions .ui-iggrid table tbody td {
+  padding: 5px 0px; 
+}
+
+.ui-iggrid .ui-iggrid-content {
+  border-color: #b1b1b1;
+}
+
+.ui-iggrid-layout-helper > tbody > tr:first-child > td,
+.ui-iggrid-layout-helper > tbody > tr:first-child > td th {
+  border-top: 0 none!important;
+  /* border-top removed for tables with virtualization */
+}
+
+.ui-iggrid th,
+.ui-iggrid th.ui-state-default {
+  border-color: #535353 #535353 #535353 #757575;
+}
+
+.ui-iggrid > table > tbody tr:first-child th.ui-igpivotgrid-header {
+  border-top-color: #535353!important;
+}
+
+/* hover */
+.ui-iggrid td.ui-state-hover,
+.ui-iggrid .ui-ig-altrecord td.ui-state-hover,
+.ui-iggrid .ui-ig-altrecord td.ui-state-default.ui-state-hover,
+.ui-iggrid th.ui-iggrid-rowselector-class.ui-state-hover,
+.ui-iggrid .ui-ig-altrecord th.ui-iggrid-rowselector-class.ui-state-hover,
+.ui-iggrid .ui-ig-altrecord th.ui-iggrid-rowselector-class.ui-state-default.ui-state-hover,
+.ui-iggrid-responsive-vertical tr > td.ui-state-hover:first-child,
+.ui-iggrid-responsive-vertical tr.ui-ig-altrecord > td.ui-state-hover:first-child {
+  color: #151515;
+  border-color: transparent;
+  background: none;
+}
+
+.ui-iggrid td.ui-state-hover a,
+.ui-iggrid .ui-ig-altrecord td.ui-state-hover a {
+  color: #151515;
+  text-shadow: none;
+}
+.ui-iggrid td.ui-state-hover a:hover,
+.ui-iggrid .ui-ig-altrecord td.ui-state-hover a:hover {
+  color: #37addf;
+}
+
+/* active cells */
+.ui-iggrid td.ui-state-focus,
+.ui-iggrid th.ui-iggrid-rowselector-class.ui-state-focus {
+ /* border-color: #185170!important;
+  background: #FFFFFF none;*/
+}
+.ui-ig-altrecord td.ui-state-focus,
+.ui-ig-altrecord th.ui-iggrid-rowselector-class.ui-state-focus {
+  /*border-color: #185170!important;
+  background: #EBEBEB none;*/
+}
+/* active rows */
+.ui-iggrid tr.ui-state-focus {
+ /* background: #ffffff none;*/
+}
+.ui-iggrid .ui-ig-altrecord.ui-state-focus {
+ /* background: #ebebeb none;*/
+}
+.ui-iggrid tr.ui-state-focus td,
+.ui-iggrid tr.ui-state-focus th {
+ /* border-top-color: #185170!important;
+  border-bottom-color: #185170!important;*/
+}
+.ui-iggrid .ui-ig-altrecord.ui-state-focus td,
+.ui-iggrid .ui-ig-altrecord.ui-state-focus th {
+/*  border-top-color: #185170!important;
+  border-bottom-color: #185170!important;*/
+}
+
+/* selected rows */
+.ui-iggrid td.ui-state-active,
+.ui-iggrid .ui-ig-altrecord td.ui-state-active,
+.ui-iggrid th.ui-iggrid-rowselector-class.ui-state-active,
+.ui-iggrid .ui-ig-altrecord th.ui-iggrid-rowselector-class.ui-state-active,
+.ui-iggrid tbody .ui-iggrid-mergedcell.ui-state-active,
+.ui-iggrid tbody .ui-ig-altrecord .ui-iggrid-mergedcell.ui-state-active,
+.ui-iggrid tbody .ui-iggrid-mergedcellstop.ui-state-active,
+.ui-iggrid tbody .ui-ig-altrecord .ui-iggrid-mergedcellstop.ui-state-active {
+  color: #333333;
+  background-color: #F4F4F4;
+  text-shadow: none;
+}
+
+
+/* Group by */
+.ui-iggrid tbody td.ui-iggrid-nongrouprowemptycell,
+.ui-iggrid tbody .ui-ig-altrecord td.ui-iggrid-nongrouprowemptycell {
+  background-color: transparent;
+}
+.ui-iggrid tbody td.ui-iggrid-nongrouprowemptycell.ui-state-hover {
+  background-image: none;
+}
+span.ui-iggrid-headertext {
+  font-weight: 600;
+  color: #999999;
+  font-size: 0.85em;
+}
+
+
+/***********/
+/* igChart */
+/***********/
+.ui-chart-palette-1 {
+  border-color: #2380A8!important;
+  background-color: #44ACD6!important;
+}
+.ui-chart-palette-2 {
+  border-color: #333333!important;
+  background-color: #494949!important;
+}
+.ui-chart-palette-3 {
+  border-color: #808080!important;
+  background-color: #A8A8A8!important;
+}
+.ui-chart-palette-4 {
+  border-color: #185170!important;
+  background-color: #216E99!important;
+}
+.ui-chart-palette-5 {
+  border-color: #879922!important;
+  background-color: #A4bA29!important;
+}
+.ui-chart-palette-6 {
+  border-color: #FBA609!important;
+  background-color: #FDBD48!important;
+}
+.ui-chart-palette-7 {
+  border-color: #FF5559!important;
+  background-color: #FF6A6F!important;
+}
+.ui-chart-palette-8 {
+  border-color: #8856b1!important;
+  background-color: #9E73C1!important;
+}
+.ui-chart-palette-9 {
+  border-color: #e3720c!important;
+  background-color: #F79036!important;
+}
+.ui-chart-palette-10 {
+  border-color: #582c7d!important;
+  background-color: #793BAC!important;
+}
+.ui-chart-palette-11 {
+  border-color: #386a23!important;
+  background-color: #48892D!important;
+}
+.ui-chart-palette-12 {
+  border-color: #C62D36!important;
+  background-color: #D3404B!important;
+}
+.ui-chart-piechart-container,
+.ui-chart-legend-item-text {
+  font-size: 12px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.ui-chart-toolbar .ui-slider-handle {
+  height: 18px;
+  margin-left: -12px;
+  top: -9px;
+}
+
+.ui-horizontal-axis-labels {
+    margin: 5px 0 0 0!important;
+}
+
+
+/***********************/
+/* igBulletGraph Chart */
+/***********************/
+
+#dashboard .ui-iggrid .ui-bulletgraph {
+  margin-top: 8px;
+}
+
+#status .bulletGraphGrid {
+    top: 5px;
+    float: left;
+}
+
+.ui-bulletgraph-backing {
+  background-color: #ffffff;
+  border-color:#ffffff;
+}
+
+.ui-bulletgraph-targetValue {
+  background-color: #494949;
+  border-color:#494949;
+}
+
+/* TICKS AND LABELS */
+.ui-bulletgraph-tick {
+  background-color: #494949;
+  border:transparent;
+}
+
+.ui-bulletgraph-minorTick {
+  background-color: #EBEBEB;
+  border: transparent;
+}
+
+.ui-bulletgraph-label {
+  background-color: #333;
+  border: transparent;
+}
+
+/* RANGE VALUES */
+.ui-bulletgraph-range-palette-1 {
+  background-color: #216E99;
+  border:transparent;
+}
+
+.ui-bulletgraph-range-palette-2 {
+  background-color: #44acd6;
+  border:transparent;
+}
+
+.ui-bulletgraph-range-palette-3 {
+  background-color: #cecece;
+  border:transparent;
+}
+
+/* ACTUAL VALUES */
+.ui-bulletgraph-actualvalue-palette-1 {
+  background-color: #e0e0e0;
+  border:transparent;
+}
+
+.ui-bulletgraph-actualvalue-palette-2 {
+  background-color: #c0c0c0;
+  border:transparent;
+}
+
+.ui-bulletgraph-actualvalue-palette-3 {
+  background-color: #999999;
+  border:transparent;
+}
+
+.ui-bulletgraph-actualvalue-palette-4 {
+  background-color: #494949;
+  border:transparent;
+}
+
+.ui-bulletgraph-actualvalue-palette-5 {
+  background-color: #353535;
+  border:transparent;
+}
+
+/* TOOLTIPS */
+.ui-bulletgraph-tooltip {
+  border-style: none;
+    white-space: nowrap;
+    background-color: transparent;
+}   
+        
+.ui-bulletgraph-range-tooltip {
+  border-style: solid;
+    border-width: 2px;
+  border-radius: 4px;
+    background-color: rgba(230, 230, 230, 0.74);
+    padding: 4px;
+  font-weight: bold;
+}
+        
+.ui-bulletgraph-actualValue-tooltip {
+  border-style: solid;
+    border-width: 2px;
+  border-radius: 4px;
+    background-color: rgba(230, 230, 230, 0.74);
+    padding: 4px;
+  font-weight: bold;
+}
+
+.ui-bulletgraph-targetValue-tooltip {
+  border-style: solid;
+    border-width: 2px;
+  border-radius: 4px;
+    background-color: rgba(230, 230, 230, 0.74);
+    padding: 4px;
+  font-weight: bold;
+}
+
+#tooltipValue {
+    color: #fff;
+    background-color: #555;
+    border: 1px solid #444;
+    margin: 0px;
+    padding: 5px;
+    outline: 0;
+    box-shadow: 0;
+}
+
+/*////////////////////////////////// INFRAGISTICS SHARED WIDGETS CSS //////////////////////////////////*/
+
+.ui-chart-container
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.ui-chart-axis
+{
+    border-color: #989EA3;
+    background-color: #989EA3;
+}
+
+.ui-horizontal-axis-labels {
+    vertical-align: top;
+    margin: 16px 0px;
+    color: #818181;
+}
+
+.ui-vertical-axis-labels {
+    text-align: right;
+    margin: 0px 16px;
+    color: #818181;
+}
+
+.ui-angular-axis-labels {
+    margin: 0px;
+    color: #818181;
+}
+.ui-radial-axis-labels {
+    vertical-align: top;
+    margin: 0px 10px;
+    color: #818181;
+}
+
+.ui-chart-legend-items-list
+{
+    padding: 0;
+    margin: 5px;
+}
+
+.ui-chart-legend-item-text
+{
+    vertical-align: middle;
+}
+
+.ui-chart-legend-item-badge
+{
+    vertical-align: middle;   
+}
+
+.ui-chart-toolbar {
+    position: absolute;
+    width: 100%;
+    text-align:center;
+}
+
+.ui-chart-toolbar li 
+{
+    list-style: none;
+    /*float: left;*/
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ui-chart-slider {
+    width: 40px; 
+    padding:5px 9px; 
+}
+
+.ui-chart-opd-button {
+    position: absolute !important; 
+    top: 5px; right: 5px;
+}
+
+.ui-chart-toolbar button
+{
+    height:18px;
+    width:18px;
+    margin:2px;
+}
+.ui-chart-toolbar button .ui-button-text
+{
+    line-height:8px;
+}
+
+/* Touch Support */
+
+
+.touch .ui-chart-toolbar .ui-chart-slider-holder 
+{
+    width:100%;
+}
+
+/* css for grid widget */
+
+.ui-iggrid {
+    background-image: none;
+    border-width:0;
+}
+.ui-iggrid .ui-helper-reset {line-height: 1.4; border:0 none;}
+.ui-iggrid-table {table-layout:fixed; width:100%; border-collapse: separate;  }
+.ui-iggrid-headertable {table-layout:fixed; width:100%; white-space: normal; border-collapse: separate; }
+.ui-iggrid table th, .ui-iggrid table td {overflow:hidden; text-overflow: ellipsis; vertical-align:middle /* reset to default value */;}
+.ui-iggrid .ui-iggrid-headertable, .ui-iggrid .ui-iggrid-content, .ui-iggrid .ui-widget-content, .ui-iggrid-scrolldiv table {border-width:0;}
+.ui-iggrid .ui-iggrid-content {width: 100%;}
+
+.ui-iggrid>.ui-widget-header.ui-helper-reset {border-width:0;}
+
+.ui-widget-content.ui-iggrid-filterddlist, .ui-widget-content.ui-iggrid-featurechooser-list, .ui-iggrid-summaries-dropdown-listcontainer
+{
+    border: none; 
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+
+.ui-iggrid .ui-iggrid-headercaption, .ui-iggrid .ui-iggrid-footer, .ui-iggrid .ui-iggrid-toolbar {
+    padding: 0.6em 0.4em;
+    text-align: center;
+    cursor:default;
+}
+
+.ui-iggrid th.ui-state-default, .ui-iggrid th.ui-state-hover, .ui-iggrid th.ui-state-active, 
+.ui-iggrid th.ui-state-default a, .ui-iggrid th.ui-state-hover a, .ui-iggrid th.ui-state-active a {font-weight: normal; text-align:left;}
+
+.ui-iggrid .ui-ig-altrecord {
+ background-color: transparent;
+}
+
+.ui-iggrid .ui-iggrid-footer, .ui-iggrid .ui-iggrid-toolbar {
+    font-weight: normal;
+    text-align: left;
+    display:block;
+}
+
+.ui-iggrid th, .ui-iggrid th.ui-state-default, .ui-iggrid th.ui-state-hover, .ui-iggrid th.ui-state-active {text-align:left;}
+.ui-iggrid table tbody td, .ui-iggrid .ui-iggrid-header, .ui-iggrid table th { padding: 1px; }
+.ui-iggrid .ui-iggrid-tablebody td {
+    border-width:0px;
+}
+
+.ui-iggrid table thead a {text-decoration:none;}
+
+.ui-iggrid td.ui-state-default, 
+.ui-iggrid td.ui-state-highlight, 
+.ui-iggrid td.ui-state-hover
+{
+    border-width:0px;
+}
+.ui-iggrid td.ui-state-highlight p {}
+
+.ui-iggrid .ui-iggrid-footer .ui-state-default, .ui-iggrid .ui-iggrid-toolbar .ui-state-default, .ui-iggrid .ui-iggrid-footer .ui-state-default a, .ui-iggrid .ui-iggrid-toolbar .ui-state-default a {text-decoration:none;}
+
+.ui-iggrid .ui-iggrid-toolbar .ui-iggrid-results {
+    float: right;
+}
+.ui-iggrid .ui-iggrid-footer .ui-iggrid-results {
+    float: left;
+}
+.ui-iggrid .ui-iggrid-paging,
+.ui-iggrid th .ui-iggrid-indicatorcontainer,
+.ui-iggrid th .ui-iggrid-indicatorcontainer .ui-icon {
+    float: right;
+}
+.ui-iggrid .ui-iggrid-paging div,
+.ui-iggrid .ui-iggrid-paging span,
+.ui-iggrid .ui-iggrid-paging li,
+.ui-iggrid .ui-iggrid-paging input,
+.ui-iggrid .ui-iggrid-results span,
+.ui-iggrid .ui-iggrid-results input{
+    float: left; 
+    /*padding:0 3px; */
+    padding: 0 0.3em;
+    line-height: 1.4em;
+}
+.ui-iggrid th .ui-iggrid-indicatorcontainer a
+{
+    float:right;
+    display:block;
+}
+
+.no-boxsizing .ui-iggrid-indicatorcontainer a {max-width: 16px;}
+
+.ui-iggrid .ui-iggrid-paging .ui-igedit-button, 
+.ui-iggrid .ui-iggrid-results .ui-igedit-button {
+    border-width:0 0 0 1px;
+}
+a.ui-iggrid-pagelink, a.ui-iggrid-pagelinkcurrent {line-height: 1.4em;}
+.ui-iggrid .ui-iggrid-paging .ui-icon, .ui-iggrid .ui-iggrid-results .ui-icon{
+    padding:0; 
+}
+
+.ui-iggrid-firstpage .ui-icon, .ui-iggrid-prevpage .ui-icon {left: 3px;}
+.ui-iggrid-nextpage .ui-icon, .ui-iggrid-lastpage .ui-icon {right:3px;}
+
+/*padding left for paging items with icons to the left */
+.ui-iggrid .ui-iggrid-paging .ui-iggrid-firstpage, .ui-iggrid .ui-iggrid-paging .ui-iggrid-prevpage{padding-left:20px;}
+/*padding right for paging items with icons to the right */
+.ui-iggrid .ui-iggrid-paging .ui-iggrid-nextpage, .ui-iggrid .ui-iggrid-paging .ui-iggrid-lastpage {padding-right:20px;}
+
+.ui-iggrid-pagelist {padding: 0 6px;}
+.ui-iggrid-pagelist li {margin:0 0.1em;}
+
+.ui-iggrid-colindicator {/* padding-right: 4px;*/ }
+
+.ui-iggrid .ui-iggrid-filterbutton {float:left;}
+.ui-iggrid th .ui-iggrid-filterbutton,
+.ui-iggrid .ui-iggrid-filterbuttonright {float: right; margin: 0 0 0 4px; }
+.ui-iggrid-filtercell  {padding:4px 0; white-space: nowrap; } 
+.ui-iggrid-filtercell .ui-igedit-field {text-align:left; }
+.ui-iggrid-scrolldiv {border-top:none!important; position:relative; min-height: 0%; background-color:#F3F3F3; border-bottom: 1px solid #DCDCDC;}
+
+/*
+    required to prevent a firefox bug where the vertical scrollbar from
+    the horizontal scroller div is overlayed over the vertical scrollbar of the scrolling div
+*/
+.ui-iggrid-scrolldiv { z-index: 1 }
+
+.ui-iggrid-scrolldiv tbody {border:none!important}
+
+/* remove paddings in nested tables */
+.ui-iggrid-layout-helper>tbody>tr>td  {padding:0!important; background:none transparent!important; vertical-align:top;}
+
+
+.ui-iggrid .ui-igedit-list .ui-igedit-listitem {font-size:1em; line-height:1.4em;}
+
+.ui-iggrid-filterddlist li, .ui-iggrid-featurechooser-list li, .ui-iggrid-summaries-dropdown-listcontainer li 
+{
+    position:relative; 
+    cursor:default;
+    border:none; 
+    padding-right:25px; 
+    padding-left:25px; 
+    line-height: 1.5em; 
+    margin-bottom: 1px;
+}
+.ui-iggrid-filtericoncontainer, .ui-iggrid-featurechoosericoncontainer {
+    margin-left: -22px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+}
+
+.ui-iggrid-virtualrow td 
+{
+    padding: 0 4px !important;
+}
+
+.ui-iggrid-resizing-handle-cursor
+{
+    cursor: e-resize;
+}
+
+.ui-iggrid-resize-line
+{
+    width: 1px;
+    background-color: black;
+    position: absolute;
+    /* 
+        scrolling div now has a z-index of 1 so we need to 
+        have z-index on the resize line as well 
+    */
+    z-index: 2;
+}
+.ui-iggrid  table tbody td.ui-iggrid-expandcolumn,
+.ui-iggrid .ui-iggrid-tablebody td.ui-iggrid-expandcolumn
+{
+    padding:0!important;
+}
+.ui-iggrid-expandbuttoncontainer, .ui-iggrid-expandbuttoncontainer-group-by
+{
+    width:30px;
+    height:2em;
+    display:block;
+    margin:0;
+}
+.ui-iggrid-expandbutton 
+{
+    width: 16px;
+    height: 16px;
+    float:left;
+    margin:20%;
+}
+
+.ui-iggrid-expandbuttongb
+{
+    width: 16px;
+    height: 16px;
+}
+
+.ui-iggrid .ui-iggrid-tablebody td.ui-iggrid-nongrouprowemptycell 
+{
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+.ui-iggrid .ui-iggrid-tablebody td.ui-iggrid-last-emptycell
+{
+    border-bottom-width: 1px;
+}
+
+.ui-iggrid-groupexpandcell 
+{
+    float:left !important;   
+}
+
+.ui-iggrid td.ui-iggrid-childarea
+{
+    padding-left: 34px;
+}
+
+.ui-iggrid-childarea-collapsed 
+{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-width: 0 !important;
+}
+
+.ui-iggrid-childgridseparator
+{
+    clear:both;
+    display:block;
+    margin:1.4em 0;
+    height:0;
+    border-top:1px dotted #000;
+    border-bottom:1px dotted #FFF;
+}
+
+/*******************
+*   Row Selectors  *
+********************/
+.ui-iggrid-rowselector-class
+{
+    font-weight:normal;
+}
+
+.ui-iggrid-rowselector-class .ui-igcheckbox-normal,
+.ui-iggrid-rowselector-header .ui-igcheckbox-normal
+{
+    float:right;
+}
+    
+.ui-iggrid-rowselector-class .ui-iggrid-rowselector-row-number 
+{
+    float:left;
+}
+
+.ui-iggrid th.ui-iggrid-rowselector-class .ui-icon
+{
+  float:left;
+  margin-right:0.2em;
+  opacity:0; 
+}
+
+.ui-iggrid th.ui-iggrid-rowselector-class.ui-state-active .ui-icon,
+.ui-iggrid .ui-ig-altrecord th.ui-iggrid-rowselector-class.ui-state-active .ui-icon 
+{
+    opacity:1; 
+}
