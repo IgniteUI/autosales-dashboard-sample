@@ -518,7 +518,7 @@ span.number {
     background-color: #E0E0E0;
     border: 1px solid #B4B4B4;
     display: block;
-    text-indent: -9999px; 
+   
     font-size: 0;
     float: left;
     margin-top: 8px;
@@ -1205,6 +1205,10 @@ span.award-icon {
   -webkit-border-radius: 0px;
   border-radius: 0px;
 }
+
+    .ui-tabs .ui-tabs-panel:hover {
+        cursor: pointer;
+    }
 
 .ui-tabs-panel .ui-iggrid {
   padding-left: 10px;
