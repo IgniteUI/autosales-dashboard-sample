@@ -266,16 +266,15 @@ Autosales.Helpers.Map = {
         element.igMap({
             width: "100%",
             height: options.height,
-            verticalZoomable: true,
+            zoomable: true,
             plotAreaBackground: "#c4e4ee",
-            horizontalZoomable: true,
             series: [{
                 type: "geographicShape",
                 name: "states",
                 markerType: "none",
                 shapeDataSource: Autosales.Config.baseUrl + "Content/Shapes/states.shp",
                 databaseSource: Autosales.Config.baseUrl + "Content/Shapes/states.dbf",
-                brush: "white",
+                brush: "white", 
                 outline: "gray",
                 markerTemplate: new $.ig.SimpleTextMarkerTemplate({
                     font: "8pt Open Sans",
@@ -384,9 +383,9 @@ Autosales.Helpers.Map = {
     },
     center: function (element, centered) {
         var geographic = Autosales.Helpers.Map.geographicFromCentered(centered);
-        var relative = element.igMap("getZoomFromGeographic", geographic);
+        var relative = element.igMap("zoomToGeographic", geographic);
 
-        element.igMap("option", "windowRect", relative);
+        //element.igMap("option", "windowRect", relative);
     },
     getTooltip: function (top, left) {
         var tooltip = $("<div class=\"tooltip\"><div class=\"tooltipHeading\"></div><span class=\"tooltipMeasure\"></span>: <div class=\"tooltipValue\"></div><span>" +
@@ -1096,37 +1095,31 @@ Autosales.Core.NavigationManager = function (element, options) {
 
     var _showInfoDialog = function () {
         var element = "dialog";
-        $("body").append("<div id='" + element + "' style='display:none;'>" +
-            $.ig.tmpl(Autosales.Resources.General.ShowcaseInfo, {
-                BaseUrl: Autosales.Config.baseUrl
-            }) +
-        "</div>");
+        if ($('#' + element).length > 0) {
+            $("#" + element).igDialog("option", "state", "opened");
+        } else {    
+            $("body").append("<div id='" + element + "' style='display:none;'>" +
+                $.ig.tmpl(Autosales.Resources.General.ShowcaseInfo, {
+                    BaseUrl: Autosales.Config.baseUrl
+                }) +
+            "</div>");
 
-        $("#" + element).igDialog({
-            state: "opened",
-            modal: true,
-            draggable: false,
-            resizable: false,
-            zIndex: 10000000,
-            height: "507px",
-            width: "700px",
-            stateChanging: function (evt, ui) {
-                // Check the igDialog state  
-                if (ui.action === "close") {
-                    $("#" + element).igDialog("destroy");
-                    $("#" + element).remove();
-                }
-            }
-        });
+            $("#" + element).igDialog({
+                state: "opened",
+                modal: true,
+                draggable: false,
+                resizable: false,
+                zIndex: 10000000,
+                height: "507px",
+                width: "700px"
+            });
 
-        $("#barcode").igQRCodeBarcode({
-            height: "66px",
-            width: "66px",
-            errorCorrectionLevel: "low",
-            barsFillMode: "ensureEqualSize",
-            stretch: "none",
-            data: Autosales.Config.baseUrl
-        });
+            $("#barcode").igQRCodeBarcode({
+                height: "62px",
+                width: "100%",
+                data: Autosales.Config.baseUrl
+            });
+        }
     };
 
     var _init = function (element, options) {
@@ -1616,7 +1609,6 @@ Autosales.Core.Panels.Dashboard = function (element, options) {
                 dataSource: data,
                 autoGenerateColumns: false,
                 dataType: "json",
-                rowTemplate: "<tr><td><span class='number'></span> ${Name}</td><td><div class='bulletGraphGrid'></div></td><td></td></tr>",
                 rowsRendered: function (evt, ui) {
                     $("#" + id + " .bulletGraphGrid").each(function (i) {
                         Autosales.Helpers.BulletGraph(this, {
@@ -1636,12 +1628,14 @@ Autosales.Core.Panels.Dashboard = function (element, options) {
                 columns: [{
                     headerText: Autosales.Resources.Dashboard.Name,
                     key: "Name",
-                    dataType: "string"
+                    dataType: "string",
+                    template: "<span class='number'></span> ${Name}"
                 }, {
                     headerText: Autosales.Resources.Dashboard.Graph,
                     key: "Graph",
                     rowspan: 1,
-                    dataType: "string"
+                    dataType: "string",
+                    template: "<div class='bulletGraphGrid'></div>"
                 }]
             });
         }, 100);
@@ -1653,7 +1647,6 @@ Autosales.Core.Panels.Dashboard = function (element, options) {
                 dataSource: data,
                 autoGenerateColumns: false,
                 dataType: "json",
-                rowTemplate: "<tr><td><span class='number'></span> ${Name}</td></tr>",
                 rowsRendered: function (evt, ui) {
                     $("#nationalTopRegions span.number").each(function (i) {
                         $(this).html("#" + (i + 1))
@@ -1663,7 +1656,8 @@ Autosales.Core.Panels.Dashboard = function (element, options) {
                 columns: [{
                     headerText: Autosales.Resources.Dashboard.Name,
                     key: "Name",
-                    dataType: "string"
+                    dataType: "string",
+                    template: "<span class='number'></span> ${Name}"
                 }]
             });
         }, 100);
@@ -1925,7 +1919,6 @@ Autosales.Core.Panels.Status = function (element, options) {
                 cellClick: function (evt, ui) {
                     _cellClick(ui.rowIndex, type);
                 },
-                rowTemplate: "<tr><td>${Name}</td><td>${Value}</td><td><div class='bulletGraphGrid'></div></td><td>${Target}</td><td><span>${Percent}%</span><span class='clickRight'>&nbsp;</span></td></tr>",
                 rowsRendered: function (evt, ui) {
                     $(element + " .bulletGraphGrid").each(function (i) {
                         var self = this;
@@ -1945,18 +1938,21 @@ Autosales.Core.Panels.Status = function (element, options) {
                 features: [{
                     name: "Selection",
                     mode: "row",
-                    multipleSelection: false,
+                    multipleSelection: false
+                    
                 }],
                 columns: [{
                     headerText: Autosales.Resources.Status.Name,
                     width: "18%",
                     key: "Name",
-                    dataType: "string"
+                    dataType: "string",
+                    temaplte: "${Name}"
                 }, {
                     headerText: Autosales.Resources.Status.ActualSales,
                     width: "18%",
                     key: "Value",
                     dataType: "number",
+                    template: "${Value}",
                     formatter: function (val) {
                         return Autosales.Helpers.formatAmount(val, _options.params.measure);
                     }
@@ -1964,12 +1960,14 @@ Autosales.Core.Panels.Status = function (element, options) {
                     headerText: "",
                     width: "34%",
                     key: "Graph",
-                    dataType: "string"
+                    dataType: "string",
+                    template: "<div class='bulletGraphGrid'></div>"
                 }, {
                     headerText: Autosales.Resources.Status.Target,
                     width: "15%",
                     key: "Target",
                     dataType: "number",
+                    temaplte: "${Target}",
                     formatter: function (val) {
                         return Autosales.Helpers.formatAmount(val, _options.params.measure);
                     }
@@ -1977,7 +1975,8 @@ Autosales.Core.Panels.Status = function (element, options) {
                     headerText: "%",
                     width: "15%",
                     key: "Percent",
-                    dataType: "string"
+                    dataType: "string",
+                    template: "<span>${Percent}%</span><span class='clickRight'>&nbsp;</span>"
                 }]
             });
         }, 100);
@@ -1989,7 +1988,6 @@ Autosales.Core.Panels.Status = function (element, options) {
                 dataSource: data,
                 autoGenerateColumns: false,
                 dataType: "json",
-                rowTemplate: "<tr><td>${Name}</td><td>${Value}</td><td>${Target} <span class='clickRight'>&nbsp;</span></td></tr>",
                 cellClick: function (evt, ui) {
                     if (Autosales.Helpers.isEnabledPanel(_element) && !isAnimated) {
                         isAnimated = true;
@@ -2012,16 +2010,19 @@ Autosales.Core.Panels.Status = function (element, options) {
                 columns: [{
                     headerText: Autosales.Resources.Status.Name,
                     key: "Name",
-                    dataType: "string"
+                    dataType: "string",
+                    temaplte: "${Name}",
                 }, {
                     headerText: Autosales.Resources.Status.ActualSales,
                     key: "Value",
                     dataType: "number",
+                    temaplte: "${Value}",
                     formatter: function (val) { return Autosales.Helpers.formatAmount(val, _options.params.measure); }
                 }, {
                     headerText: Autosales.Resources.Status.Target,
                     key: "Target",
                     dataType: "number",
+                    template: "${Target} <span class='clickRight'>&nbsp;</span>",
                     formatter: function (val) { return Autosales.Helpers.formatAmount(val, _options.params.measure); }
                 }]
             });
@@ -2040,7 +2041,6 @@ Autosales.Core.Panels.Status = function (element, options) {
                     width: "100%",
                     height: $(window).height() - 74,
                     dataType: "json",
-                    rowTemplate: "<tr><td>${Name}</td><td>${Value}</td><td>${Target}</td><td><span>${Percent}%</span><span class='clickRight'>&nbsp;</span></td></tr>",
                     cellClick: function (evt, ui) {
                         if (Autosales.Helpers.isEnabledPanel(_element)) {
                             _cellClick(ui.rowIndex, type);
@@ -2055,24 +2055,28 @@ Autosales.Core.Panels.Status = function (element, options) {
                         headerText: Autosales.Resources.Status.Name,
                         width: "28%",
                         key: "Name",
-                        dataType: "string"
+                        dataType: "string",
+                        template: "${Name}"
                     }, {
                         headerText: Autosales.Resources.Status.Actual,
                         width: "28%",
                         key: "Value",
                         dataType: "number",
+                        template: "${Value}",
                         formatter: function (val) { return Autosales.Helpers.formatAmount(val, _options.params.measure); },
                     }, {
                         headerText: Autosales.Resources.Status.Target,
                         width: "28%",
                         key: "Target",
                         dataType: "number",
+                        template: "{Target}",
                         formatter: function (val) { return Autosales.Helpers.formatAmount(val, _options.params.measure); }
                     }, {
                         headerText: "%",
                         width: "16%",
                         key: "Percent",
-                        dataType: "string"
+                        dataType: "string",
+                        template: "<span>${Percent}%</span><span class='clickRight'>&nbsp;</span>"
                     }]
                 });
             }, 100)
@@ -2091,7 +2095,6 @@ Autosales.Core.Panels.Status = function (element, options) {
                     width: "100%",
                     height: $(window).height() - 74,
                     dataType: "json",
-                    rowTemplate: "<tr><td>${Name}</td><td><div class='bulletGraphGrid'></div><span class='clickRight'>&nbsp;</span></td></tr>",
                     rowsRendered: function (evt, ui) {
                         $(element + " .bulletGraphGrid").each(function (i) {
                             Autosales.Helpers.BulletGraph(this, {
@@ -2120,12 +2123,14 @@ Autosales.Core.Panels.Status = function (element, options) {
                         headerText: Autosales.Resources.Status.Name,
                         width: "27%",
                         key: "Name",
-                        dataType: "string"
+                        dataType: "string",
+                        template: "${Name}"
                     }, {
                         headerText: Autosales.Resources.Status.Target,
                         width: "73%",
                         key: "Graph",
-                        dataType: "string"
+                        dataType: "string",
+                        template: "<div class='bulletGraphGrid'></div><span class='clickRight'>&nbsp;</span>"
                     }]
                 });
             }, 100);
